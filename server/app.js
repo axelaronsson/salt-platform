@@ -5,6 +5,7 @@ import bodyParser from 'body-parser';
 import { reqBodyValidator, idValidator, nextId } from './errorHandling.js';
 import cors from 'cors';
 const itemsData =  require('./db/items.json');
+const githubData =  require('./db/github.json');
 const app = express();
 let items = itemsData;
 
@@ -19,6 +20,10 @@ app.use((req, res, next) => {
 
 app.get('/api/videos', (req, res) => {
   res.send(items);
+});
+
+app.get('/api/github', (req, res) => {
+  res.send(githubData);
 });
 
 app.post('/api/videos', (req,res) => {
