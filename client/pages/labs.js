@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react"
+import NavPrivate from "../components/NavPrivate";
 import Videos from "../components/Videos"
 const labs = () => {
   const [videos, setVideos] = useState([]);
@@ -15,9 +16,8 @@ const labs = () => {
   }, [])
   return (
     <div>
-    
-      labs Page
-      {videos.map(video => <Videos video={video} />)}
+      <NavPrivate />
+      {videos.map((video, index) => <Videos video={video} key={index}/>)}
     </div>
   )
 }
