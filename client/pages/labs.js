@@ -11,21 +11,21 @@ const labs = () => {
 
 
   const fetchVideos = async () =>{
-   const res = await fetch('http://localhost:4000/api/videos')
+   const res = await fetch('http://localhost:3000/api/videos')
    const allVideos = await res.json();
    setVideos(allVideos)
    return allVideos;
   };
 
   const fetchGithub = async () =>{
-    const res = await fetch('http://localhost:4000/api/github')
+    const res = await fetch('http://localhost:3000/api/github')
     const allGithub = await res.json();
     setGithub(allGithub)
     return allGithub;
    };
 
    const fetchSlides = async () =>{
-     const res = await fetch('http://localhost:4000/api/slides')
+     const res = await fetch('http://localhost:3000/api/slides')
      const allSlides = await res.json();
      setSlides(allSlides)
      return allSlides;
