@@ -1,8 +1,9 @@
 const express = require('express');
-let videosRouter = express.Router();
-const itemsData = require('./db/items.json');
-let items = itemsData;
+const videosRouter = express.Router();
+const itemsData = require('../db/items.json');
 const { reqBodyValidator, idValidator, nextId } = require('../errorHandling');
+
+let items = itemsData;
 
 videosRouter
   .route('/')
@@ -35,7 +36,7 @@ videosRouter
     res.status(204);
     res.end();
   })
-  .delete('/:id', (req, res) => {
+  .delete((req, res) => {
     const { id } = req.params;
     idValidator(id, items);
     items = items.filter(item => item.id !== id);
