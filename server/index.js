@@ -4,6 +4,8 @@ const bodyParser = require('body-parser');
 const videosRouter = require('./routes/videosRouter');
 const slidesRouter = require('./routes/slidesRouter');
 const githubRouter = require('./routes/githubRouter');
+const coursesRouter = require('./routes/coursesRouter');
+const demosRouter = require('./routes/demosRouter');
 
 const port = parseInt(process.env.PORT, 10) || 3000;
 const dev = process.env.NODE_ENV !== 'production';
@@ -18,6 +20,8 @@ app.prepare().then(() => {
   server.use('/api/videos', videosRouter);
   server.use('/api/github', githubRouter);
   server.use('/api/slides', slidesRouter);
+  server.use('/api/courses', coursesRouter);
+  server.use('/api/demos', demosRouter);
 
   server.all('*', (req, res) => {
     return handle(req, res)

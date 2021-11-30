@@ -6,7 +6,7 @@ const courses = () => {
     const [coursesList, setCoursesList] = useState([])
 
     const fetchCourses = async () => {
-        const res = await fetch('http://localhost:4000/api/courses')
+        const res = await fetch('http://localhost:3000/api/courses')
         const allCourses = await res.json();
         setCoursesList(allCourses)
         return allCourses;

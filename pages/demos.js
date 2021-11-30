@@ -6,7 +6,7 @@ const demos = () => {
     const [demosList, setDemosList] = useState([])
 
     const fetchDemos = async () => {
-        const res = await fetch('http://localhost:4000/api/demos')
+        const res = await fetch('http://localhost:3000/api/demos')
         const allDemos = await res.json();
         setDemosList(allDemos)
         return allDemos;
