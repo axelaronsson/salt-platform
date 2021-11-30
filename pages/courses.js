@@ -1,5 +1,7 @@
 import { useState, useEffect } from "react";
 import Courses from "../components/Courses"
+import NavPrivate from "../components/NavPrivate";
+import styles from '../styles/pages.module.css'
 
 const courses = () => {
 
@@ -18,9 +20,12 @@ const courses = () => {
         }
     }, [])
     return (
-        <div>
+        <div className={styles.container}>
+        <NavPrivate />
             <h1>Courses</h1>
+            <div className={styles.icons}>
             {coursesList.map(course => <Courses course={course} />)}
+            </div>
         </div>
     )
 }

@@ -3,6 +3,7 @@ import NavPrivate from "../components/NavPrivate";
 import Videos from "../components/Videos";
 import Github from "../components/Github";
 import Slides from "../components/Slides";
+import styles from '../styles/pages.module.css'
 
 const labs = () => {
   const [slides, setSlides] = useState([]);
@@ -40,11 +41,20 @@ const labs = () => {
   }, []);
 
   return (
-    <div>
+    <div className={styles.container}>
       <NavPrivate />
-      {videos.map(video => <Videos video={video} />)}
+      <h2>Github</h2>
+      <div className={styles.icons}>
       {githubLinks.map(github => <Github github={github} />)}
+      </div>
+      <h2>Slides</h2>
+      <div className={styles.icons}>
       {slides.map(slide => <Slides slide={slide} />)}
+      </div>
+      <h2>Videos</h2>
+      <div className={styles.icons}>
+      {videos.map(video => <Videos video={video} />)}
+      </div>
     </div>
   )
 }
