@@ -7,6 +7,8 @@ import cors from 'cors';
 const itemsData =  require('./db/items.json');
 const githubData =  require('./db/github.json');
 const slidesData =  require('./db/slides.json');
+const coursesData =  require('./db/courses.json');
+const demosData =  require('./db/demos.json');
 const app = express();
 let items = itemsData;
 
@@ -29,6 +31,14 @@ app.get('/api/github', (req, res) => {
 
 app.get('/api/slides', (req, res) => {
     res.send(slidesData);
+});
+
+app.get('/api/courses', (req, res) => {
+    res.send(coursesData);
+});
+
+app.get('/api/demos', (req, res) => {
+    res.send(demosData);
 });
 
 app.post('/api/videos', (req,res) => {
