@@ -1,5 +1,7 @@
 import { useState, useEffect } from "react";
 import Demos from "../components/Demos"
+import NavPrivate from "../components/NavPrivate";
+import styles from '../styles/pages.module.css'
 
 const demos = () => {
 
@@ -18,9 +20,12 @@ const demos = () => {
         }
     }, [])
     return (
-        <div>
+        <div className={styles.container}>
+        <NavPrivate />
             <h1>Demos</h1>
+            <div className={styles.icons}>
             {demosList.map(demo => <Demos demo={demo} />)}
+            </div>
         </div>
     )
 }

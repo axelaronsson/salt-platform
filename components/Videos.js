@@ -1,10 +1,10 @@
-import React from 'react'
+import styles from '../styles/icon.module.css'
 
-const Videos = ({video}) => {
+const Videos = ({ video }) => {
   return (
-    <div>
-      <a target='_blank' href={video.link}><img src='https://i.postimg.cc/6QZTyfkN/2.png'></img></a>
-    </div>
+    <>
+      <a target='_blank' href={video.link}><img className ={styles.icon} src='https://i.postimg.cc/6QZTyfkN/2.png'></img></a>
+    </>
   )
 }
 
