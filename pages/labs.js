@@ -112,7 +112,7 @@ const labs = () => {
 
       <h2>Videos</h2>
       {!videosToggle &&(
-       <button onClick={()=>setVideosToggle(show => !show)}>Add Repo</button> 
+       <button onClick={()=>setVideosToggle(show => !show)}>Add Video</button> 
       )}
       {videosToggle && (
         <form onSubmit={handleVideosFormSubmit}>
