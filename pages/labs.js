@@ -22,21 +22,21 @@ const labs = () => {
   const fetchVideos = async () => {
     const res = await fetch('http://localhost:3000/api/videos')
     const allVideos = await res.json();
-    setVideos(allVideos)
+    setVideos(allVideos);
     return allVideos;
   };
 
   const fetchGithub = async () => {
     const res = await fetch('http://localhost:3000/api/github')
     const allGithub = await res.json();
-    setGithub(allGithub)
+    setGithub(allGithub);
     return allGithub;
   };
 
   const fetchSlides = async () => {
     const res = await fetch('http://localhost:3000/api/slides')
     const allSlides = await res.json();
-    setSlides(allSlides)
+    setSlides(allSlides);
     return allSlides;
   };
 
@@ -51,7 +51,7 @@ const labs = () => {
   const handleGithubFormSubmit = (e) => {
     e.preventDefault();
     console.log(githubDescription, githubLink);
-    setGithubToggle(show => !show)
+    setGithubToggle(show => !show);
     setGithubLink('');
     setGithubDescription('');
   };
@@ -59,7 +59,7 @@ const labs = () => {
   const handleSlidesFormSubmit = (e) => {
     e.preventDefault();
     console.log(slidesDescription, slidesLink);
-    setSlidesToggle(show => !show)
+    setSlidesToggle(show => !show);
     setSlidesLink('');
     setSlidesDescription('');
   };
@@ -67,7 +67,7 @@ const labs = () => {
   const handleVideosFormSubmit = (e) => {
     e.preventDefault();
     console.log(videoDescription, videoLink);
-    setVideosToggle(show => !show)
+    setVideosToggle(show => !show);
     setVideoLink('');
     setVideoDescription('');
   };
