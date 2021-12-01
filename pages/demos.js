@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import Demos from "../components/Demos";
 import NavPrivate from "../components/NavPrivate";
 import styles from '../styles/pages.module.css';
+import axios from "axios";
 
 const demos = () => {
   const [demosList, setDemosList] = useState([]);
@@ -22,10 +23,16 @@ const demos = () => {
     }
   }, []);
 
-  const handleDemoFormSubmit = (e) => {
+  const handleDemoFormSubmit = async (e) => {
     e.preventDefault();
     console.log(demoDescription, demoLink);
+    const newDemo = {
+     description: demoDescription,
+     link: demoLink
+    };
+    await axios.post('http://localhost:3000/api/demos', newDemo);
     setDemoToggle(show => !show);
+    fetchDemos();
     setDemoLink('');
     setDemoDescription('');
   };

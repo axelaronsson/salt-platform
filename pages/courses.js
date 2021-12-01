@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import Courses from "../components/Courses";
 import NavPrivate from "../components/NavPrivate";
 import styles from '../styles/pages.module.css';
+import axios from "axios";
 
 const courses = () => {
   const [coursesList, setCoursesList] = useState([]);
@@ -22,9 +23,15 @@ const courses = () => {
     }
   }, []);
 
-  const handleCourseFormSubmit = (e) => {
+  const handleCourseFormSubmit = async(e) => {
     e.preventDefault();
     console.log(courseDescription, courseLink);
+    const newCourse = {
+      description: courseDescription,
+      link: courseLink
+    };
+    await axios.post('http://localhost:3000/api/courses', newCourse);
+    fetchCourses()
     setCourseToggle(show => !show);
     setCourseLink('');
     setCourseDescription('');
@@ -40,7 +47,7 @@ const courses = () => {
       )}
       {courseToggle && (
         <form onSubmit={handleCourseFormSubmit}>
-        <label><strong>Description: </strong></label>
+          <label><strong>Description: </strong></label>
           <input value={courseDescription} onChange={({ target: { value } }) => setCourseDescription(value)} />
           <label> <strong>Course Link: </strong></label>
           <input value={courseLink} onChange={({ target: { value } }) => setCourseLink(value)} />
