@@ -1,25 +1,17 @@
 const express = require('express');
 const slidesRouter = express.Router();
-const slidesData = require('../db/slides.json');
 const { reqBodyValidator, idValidator, nextId } = require('../errorHandling');
-
-let items = slidesData;
+const Slides = require('../db/models/Slides');
+require('../db/mogoose');
 
 slidesRouter
   .route('/')
-  .get((req, res) => {
-    res.send(items);
-  })
+  .get((req, res) => Slides.find({}).then(response => res.send(response)))  
   .post((req, res) => {
     res.setHeader('content-type', 'application/json');
     reqBodyValidator(req);
-    const newItem = {
-      id: nextId(items).toString(),
-      link: req.body.link,
-    };
-    items = [...items, newItem];
-    res.status(201);
-    res.send(newItem);
+    const slides = new Slides(req.body);
+    slides.save().then(response => res.send(response));
   });
 
 slidesRouter

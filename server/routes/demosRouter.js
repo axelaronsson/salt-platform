@@ -1,25 +1,17 @@
 const express = require('express');
 const demosRouter = express.Router();
-const demosData = require('../db/demos.json');
 const { reqBodyValidator, idValidator, nextId } = require('../errorHandling');
-
-let items = demosData;
+const Demo = require('../db/models/Demo');
+require('../db/mogoose');
 
 demosRouter
   .route('/')
-  .get((req, res) => {
-    res.send(items);
-  })
+  .get((req, res) => Demo.find({}).then(response => res.send(response)))  
   .post((req, res) => {
     res.setHeader('content-type', 'application/json');
     reqBodyValidator(req);
-    const newItem = {
-      id: nextId(items).toString(),
-      link: req.body.link,
-    };
-    items = [...items, newItem];
-    res.status(201);
-    res.send(newItem);
+    const demo = new Demo(req.body);
+    demo.save().then(response => res.send(response));
   });
 
   demosRouter

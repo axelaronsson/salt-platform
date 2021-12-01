@@ -1,25 +1,17 @@
 const express = require('express');
 const videosRouter = express.Router();
-const itemsData = require('../db/items.json');
 const { reqBodyValidator, idValidator, nextId } = require('../errorHandling');
-
-let items = itemsData;
+const Video = require('../db/models/Video');
+require('../db/mogoose');
 
 videosRouter
   .route('/')
-  .get((req, res) => {
-    res.send(items);
-  })
+  .get((req, res) => Video.find({}).then(response => res.send(response)))  
   .post((req, res) => {
     res.setHeader('content-type', 'application/json');
     reqBodyValidator(req);
-    const newItem = {
-      id: nextId(items).toString(),
-      link: req.body.link,
-    };
-    items = [...items, newItem];
-    res.status(201);
-    res.send(newItem);
+    const video = new Video(req.body);
+    video.save().then(response => res.send(response));
   });
 
 videosRouter

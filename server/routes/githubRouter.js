@@ -1,25 +1,17 @@
 const express = require('express');
 const githubRouter = express.Router();
-const githubData = require('../db/github.json');
 const { reqBodyValidator, idValidator, nextId } = require('../errorHandling');
-
-let items = githubData;
+const Github = require('../db/models/Github');
+require('../db/mogoose');
 
 githubRouter
   .route('/')
-  .get((req, res) => {
-    res.send(items);
-  })
+  .get((req, res) => Github.find({}).then(response => res.send(response)))  
   .post((req, res) => {
     res.setHeader('content-type', 'application/json');
     reqBodyValidator(req);
-    const newItem = {
-      id: nextId(items).toString(),
-      link: req.body.link,
-    };
-    items = [...items, newItem];
-    res.status(201);
-    res.send(newItem);
+    const github = new Github(req.body);
+    github.save().then(response => res.send(response));
   });
 
 githubRouter
