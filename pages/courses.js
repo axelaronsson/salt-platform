@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
-import Courses from "../components/Courses"
+import Courses from "../components/Courses";
 import NavPrivate from "../components/NavPrivate";
-import styles from '../styles/pages.module.css'
+import styles from '../styles/pages.module.css';
 
 const courses = () => {
 
@@ -12,19 +12,20 @@ const courses = () => {
         const allCourses = await res.json();
         setCoursesList(allCourses)
         return allCourses;
-    }
+    };
 
     useEffect(() => {
         fetchCourses()
         return () => {
         }
-    }, [])
+    }, []);
+
     return (
         <div className={styles.container}>
         <NavPrivate />
             <h1>Courses</h1>
             <div className={styles.icons}>
-            {coursesList.map(course => <Courses course={course} />)}
+            {coursesList.map((course, index) => <Courses key={index} course={course} />)}
             </div>
         </div>
     )
