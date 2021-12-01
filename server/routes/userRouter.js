@@ -1,20 +1,20 @@
 const express = require('express');
-const videosRouter = express.Router();
+const userRouter = express.Router();
 const { reqBodyValidator, idValidator, nextId } = require('../errorHandling');
-const Video = require('../db/models/Video');
+const User = require('../db/models/User')
 require('../db/mogoose');
 
-videosRouter
+userRouter
   .route('/')
-  .get((req, res) => Video.find({}).then(response => res.send(response)))  
-  .post((req, res) => {
+  .get((req, res) => User.find({}).then(response => res.send(response)))
+  .post( async (req, res) => {
     res.setHeader('content-type', 'application/json');
     reqBodyValidator(req);
-    const video = new Video(req.body);
-    video.save().then(response => res.send(response));
+    const user = new User(req.body);
+    user.save().then(response => res.send(response));
   });
 
-videosRouter
+userRouter
   .route('/:id')
   .put((req, res) => {
     res.setHeader('content-type', 'application/json');
@@ -31,9 +31,10 @@ videosRouter
   .delete( async (req, res) => {
     const { id } = req.params;
     // idValidator(id, items);
-    await Video.deleteOne({_id: id});
+    await User.deleteOne({_id: id});
+    console.log(id);
     res.status(204);
     res.end()
   });
 
-module.exports = videosRouter;
+module.exports = userRouter;
