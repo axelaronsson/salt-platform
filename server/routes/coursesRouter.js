@@ -1,25 +1,17 @@
 const express = require('express');
 const coursesRouter = express.Router();
-const coursesData = require('../db/courses.json');
 const { reqBodyValidator, idValidator, nextId } = require('../errorHandling');
-
-let items = coursesData;
+const Course = require('../db/models/Course')
+require('../db/mogoose');
 
 coursesRouter
   .route('/')
-  .get((req, res) => {
-    res.send(items);
-  })
-  .post((req, res) => {
+  .get((req, res) => Course.find({}).then(response => res.send(response)))
+  .post( async (req, res) => {
     res.setHeader('content-type', 'application/json');
     reqBodyValidator(req);
-    const newItem = {
-      id: nextId(items).toString(),
-      link: req.body.link,
-    };
-    items = [...items, newItem];
-    res.status(201);
-    res.send(newItem);
+    const course = new Course(req.body);
+    course.save().then(response => res.send(response));
   });
 
 coursesRouter
