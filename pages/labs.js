@@ -4,6 +4,7 @@ import Videos from "../components/Videos";
 import Github from "../components/Github";
 import Slides from "../components/Slides";
 import styles from '../styles/pages.module.css';
+import axios from "axios";
 
 const labs = () => {
   const [slides, setSlides] = useState([]);
@@ -41,32 +42,50 @@ const labs = () => {
   };
 
   useEffect(() => {
-    fetchVideos();
-    fetchSlides();
     fetchGithub();
+    fetchSlides();
+    fetchVideos();
     return () => {
     }
   }, []);
 
-  const handleGithubFormSubmit = (e) => {
+  const handleGithubFormSubmit = async(e) => {
     e.preventDefault();
     console.log(githubDescription, githubLink);
+    const newRepo = {
+      description: githubDescription,
+      link: githubLink
+    };
+    await axios.post('http://localhost:3000/api/github', newRepo);
+    fetchGithub();
     setGithubToggle(show => !show);
     setGithubLink('');
     setGithubDescription('');
   };
 
-  const handleSlidesFormSubmit = (e) => {
+  const handleSlidesFormSubmit = async(e) => {
     e.preventDefault();
     console.log(slidesDescription, slidesLink);
+    const newSlides = {
+      description: slidesDescription,
+      link: slidesLink
+    };
+    await axios.post('http://localhost:3000/api/slides', newSlides);
+    fetchSlides();
     setSlidesToggle(show => !show);
     setSlidesLink('');
     setSlidesDescription('');
   };
 
-  const handleVideosFormSubmit = (e) => {
+  const handleVideosFormSubmit = async(e) => {
     e.preventDefault();
     console.log(videoDescription, videoLink);
+    const newVideo = {
+      description: slidesDescription,
+      link: slidesLink
+    };
+    await axios.post('http://localhost:3000/api/videos', newVideo);
+    fetchVideos();
     setVideosToggle(show => !show);
     setVideoLink('');
     setVideoDescription('');
@@ -77,8 +96,8 @@ const labs = () => {
       <NavPrivate />
 
       <h2>Github</h2>
-      {!githubToggle &&(
-       <button className={styles.button} onClick={()=>setGithubToggle(show => !show)}>Add Repo</button> 
+      {!githubToggle && (
+        <button className={styles.button} onClick={() => setGithubToggle(show => !show)}>Add Repo</button>
       )}
       {githubToggle && (
         <form onSubmit={handleGithubFormSubmit}>
@@ -94,12 +113,12 @@ const labs = () => {
       </div>
 
       <h2>Slides</h2>
-      {!slidesToggle &&(
-       <button className={styles.button} onClick={()=>setSlidesToggle(show => !show)}>Add Slides</button> 
+      {!slidesToggle && (
+        <button className={styles.button} onClick={() => setSlidesToggle(show => !show)}>Add Slides</button>
       )}
       {slidesToggle && (
         <form onSubmit={handleSlidesFormSubmit}>
-        <label><strong>Description: </strong></label>
+          <label><strong>Description: </strong></label>
           <input value={slidesDescription} onChange={({ target: { value } }) => setSlidesDescription(value)} />
           <label> <strong>Slides Link: </strong></label>
           <input value={slidesLink} onChange={({ target: { value } }) => setSlidesLink(value)} />
@@ -111,12 +130,12 @@ const labs = () => {
       </div>
 
       <h2>Videos</h2>
-      {!videosToggle &&(
-       <button className={styles.button} onClick={()=>setVideosToggle(show => !show)}>Add Video</button> 
+      {!videosToggle && (
+        <button className={styles.button} onClick={() => setVideosToggle(show => !show)}>Add Video</button>
       )}
       {videosToggle && (
         <form onSubmit={handleVideosFormSubmit}>
-        <label><strong>Description: </strong></label>
+          <label><strong>Description: </strong></label>
           <input value={videoDescription} onChange={({ target: { value } }) => setVideoDescription(value)} />
           <label> <strong>Video Link: </strong></label>
           <input value={videoLink} onChange={({ target: { value } }) => setVideoLink(value)} />
