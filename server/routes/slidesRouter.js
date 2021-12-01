@@ -28,10 +28,10 @@ slidesRouter
     res.status(204);
     res.end();
   })
-  .delete((req, res) => {
+  .delete( async (req, res) => {
     const { id } = req.params;
-    idValidator(id, items);
-    items = items.filter(item => item.id !== id);
+    // idValidator(id, items);
+    await Slides.deleteOne({_id: id});
     res.status(204);
     res.end()
   });

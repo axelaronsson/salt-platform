@@ -28,10 +28,11 @@ coursesRouter
     res.status(204);
     res.end();
   })
-  .delete((req, res) => {
+  .delete( async (req, res) => {
     const { id } = req.params;
-    idValidator(id, items);
-    items = items.filter(item => item.id !== id);
+    // idValidator(id, items);
+    await Course.deleteOne({_id: id});
+    console.log(id);
     res.status(204);
     res.end()
   });
