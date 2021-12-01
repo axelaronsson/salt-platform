@@ -35,15 +35,15 @@ const demos = () => {
       <NavPrivate />
       <h1>Demos</h1>
       {!demoToggle && (
-        <button onClick={() => setDemoToggle(show => !show)}>Add Demo</button>
+        <button className={styles.button} onClick={() => setDemoToggle(show => !show)}>Add Demo</button>
       )}
       {demoToggle && (
         <form onSubmit={handleDemoFormSubmit}>
-          <label>Description:</label>
+        <label><strong>Description: </strong></label>
           <input value={demoDescription} onChange={({ target: { value } }) => setDemoDescription(value)} />
-          <label>Repo Link:</label>
+          <label> <strong>Demo Link: </strong></label>
           <input value={demoLink} onChange={({ target: { value } }) => setDemoLink(value)} />
-          <button type='submit'>Add</button>
+          <button className={styles.button} type='submit'>Add</button>
         </form>
       )}
       <div className={styles.icons}>

@@ -36,15 +36,15 @@ const courses = () => {
 
       <h1>Courses</h1>
       {!courseToggle && (
-        <button onClick={() => setCourseToggle(show => !show)}>Add Course</button>
+        <button className={styles.button} onClick={() => setCourseToggle(show => !show)}>Add Course</button>
       )}
       {courseToggle && (
         <form onSubmit={handleCourseFormSubmit}>
-          <label>Description:</label>
+        <label><strong>Description: </strong></label>
           <input value={courseDescription} onChange={({ target: { value } }) => setCourseDescription(value)} />
-          <label>Repo Link:</label>
+          <label> <strong>Course Link: </strong></label>
           <input value={courseLink} onChange={({ target: { value } }) => setCourseLink(value)} />
-          <button type='submit'>Add</button>
+          <button className={styles.button} type='submit'>Add</button>
         </form>
       )}
       <div className={styles.icons}>

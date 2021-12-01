@@ -78,15 +78,15 @@ const labs = () => {
 
       <h2>Github</h2>
       {!githubToggle &&(
-       <button onClick={()=>setGithubToggle(show => !show)}>Add Repo</button> 
+       <button className={styles.button} onClick={()=>setGithubToggle(show => !show)}>Add Repo</button> 
       )}
       {githubToggle && (
         <form onSubmit={handleGithubFormSubmit}>
-          <label>Description:</label>
+          <label><strong>Description: </strong></label>
           <input value={githubDescription} onChange={({ target: { value } }) => setGithubDescription(value)} />
-          <label>Repo Link:</label>
+          <label> <strong>Repo Link: </strong></label>
           <input value={githubLink} onChange={({ target: { value } }) => setGithubLink(value)} />
-          <button type='submit'>Add</button>
+          <button className={styles.button} type='submit'>Add</button>
         </form>
       )}
       <div className={styles.icons}>
@@ -95,15 +95,15 @@ const labs = () => {
 
       <h2>Slides</h2>
       {!slidesToggle &&(
-       <button onClick={()=>setSlidesToggle(show => !show)}>Add Slides</button> 
+       <button className={styles.button} onClick={()=>setSlidesToggle(show => !show)}>Add Slides</button> 
       )}
       {slidesToggle && (
         <form onSubmit={handleSlidesFormSubmit}>
-          <label>Description:</label>
+        <label><strong>Description: </strong></label>
           <input value={slidesDescription} onChange={({ target: { value } }) => setSlidesDescription(value)} />
-          <label>Repo Link:</label>
+          <label> <strong>Slides Link: </strong></label>
           <input value={slidesLink} onChange={({ target: { value } }) => setSlidesLink(value)} />
-          <button type='submit'>Add</button>
+          <button className={styles.button} type='submit'>Add</button>
         </form>
       )}
       <div className={styles.icons}>
@@ -112,15 +112,15 @@ const labs = () => {
 
       <h2>Videos</h2>
       {!videosToggle &&(
-       <button onClick={()=>setVideosToggle(show => !show)}>Add Video</button> 
+       <button className={styles.button} onClick={()=>setVideosToggle(show => !show)}>Add Video</button> 
       )}
       {videosToggle && (
         <form onSubmit={handleVideosFormSubmit}>
-          <label>Description:</label>
+        <label><strong>Description: </strong></label>
           <input value={videoDescription} onChange={({ target: { value } }) => setVideoDescription(value)} />
-          <label>Repo Link:</label>
+          <label> <strong>Video Link: </strong></label>
           <input value={videoLink} onChange={({ target: { value } }) => setVideoLink(value)} />
-          <button type='submit'>Add</button>
+          <button className={styles.button} type='submit'>Add</button>
         </form>
       )}
       <div className={styles.icons}>

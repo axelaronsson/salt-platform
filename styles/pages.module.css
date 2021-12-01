@@ -22,3 +22,12 @@
   background-color: black;
   color: white;
 }
+
+.formdiv{
+  margin: 100px;
+  padding: 50px;
+}
+
+.input{
+  border: 0px;
+}
