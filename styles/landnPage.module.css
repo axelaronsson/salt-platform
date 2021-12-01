@@ -1,0 +1,46 @@
+
+.container{
+  text-align: center;
+  vertical-align: middle;
+  padding: 0;
+  margin: 0px;
+}
+.courses{
+  height: 310px;
+  background-color: #C85C5C;
+  width: 100%;
+}
+.courses__text{
+  font-size: 70px;
+  margin: auto;
+  vertical-align: middle;
+  line-height: 310px;
+  color:antiquewhite;
+}
+.labs{
+  height: 310px;
+  background-color: #96C7C1;
+  width: 100%;
+}
+.labs__text{
+  font-size: 70px;
+  margin: auto;
+  vertical-align: middle;
+  line-height: 310px;
+  color:antiquewhite;
+}
+
+.demos{
+  width: 100%;
+  display: block;
+  height: 307px;
+  background-color: #99A799;
+  width: 100%;
+}
+.demos__text{
+  font-size: 70px;
+  margin: auto;
+  vertical-align: middle;
+  line-height: 307px;
+  color:antiquewhite;
+}
