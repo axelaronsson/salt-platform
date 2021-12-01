@@ -1,4 +1,4 @@
-import styles from '../styles/icon.module.css'
+import styles from '../styles/icon.module.css';
 
 const Courses = ({course}) => {
     return (
@@ -6,6 +6,6 @@ const Courses = ({course}) => {
             <a target='_blank' href={course.link}><img className ={styles.icon} src='https://i.postimg.cc/sgLX09nG/co.png'></img></a>            
         </div>
     )
-}
+};
 
-export default Courses
+export default Courses;
