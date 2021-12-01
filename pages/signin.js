@@ -1,4 +1,4 @@
-import styles from '../styles/signin.module.css'
+import styles from '../styles/signin.module.css';
 
 const signin = () => {
   return (
@@ -20,6 +20,6 @@ const signin = () => {
       </div>
     </div>
   )
-}
+};
 
-export default signin
+export default signin;

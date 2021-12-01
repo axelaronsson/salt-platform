@@ -49,7 +49,7 @@ const labs = () => {
     }
   }, []);
 
-  const handleGithubFormSubmit = async(e) => {
+  const handleGithubFormSubmit = async (e) => {
     e.preventDefault();
     console.log(githubDescription, githubLink);
     const newRepo = {
@@ -63,7 +63,7 @@ const labs = () => {
     setGithubDescription('');
   };
 
-  const handleSlidesFormSubmit = async(e) => {
+  const handleSlidesFormSubmit = async (e) => {
     e.preventDefault();
     console.log(slidesDescription, slidesLink);
     const newSlides = {
@@ -77,7 +77,7 @@ const labs = () => {
     setSlidesDescription('');
   };
 
-  const handleVideosFormSubmit = async(e) => {
+  const handleVideosFormSubmit = async (e) => {
     e.preventDefault();
     console.log(videoDescription, videoLink);
     const newVideo = {
@@ -147,6 +147,6 @@ const labs = () => {
       </div>
     </div>
   )
-}
+};
 
 export default labs;
