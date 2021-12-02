@@ -11,7 +11,10 @@ userRouter
     res.setHeader('content-type', 'application/json');
     reqBodyValidator(req);
     const user = new User(req.body);
-    user.save().then(response => res.send(response));
+    user.save().then(async (response) => {
+      await user.genrateAuthToken();
+      res.send(response)
+    });
   });
 
 userRouter.post('/login', async(req, res) => {
@@ -19,7 +22,8 @@ userRouter.post('/login', async(req, res) => {
   console.log(req.body)
   try{
     const user = await User.findByCredentials(req.body.email, req.body.password);
-    res.send(user);
+    const token = await user.generateAuthToken();
+    res.send({user, token});
   }catch(e){
     res.status(400).send(e.message)
   }
