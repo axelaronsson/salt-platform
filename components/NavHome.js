@@ -1,13 +1,18 @@
+import Link from 'next/link'
 import navHomeStyles from '../styles/NavHome.module.css';
 
 const NavHome = () => {
     return (
-        <div className={navHomeStyles.navbar}>
-        <h2>&lt;/Salt&gt; Platform</h2>
-        <a href="/index.js">Home</a>
-        <a href="/protips.js">Protips</a>
-        <a href="/katas.js">Katas</a>
-        <button>Login</button>
+        <div className={navHomeStyles.wrapper}>
+        <div className={navHomeStyles.logo}>
+          <h2>&lt;/Salt&gt; Platform</h2>
+        </div>
+        <nav className={navHomeStyles.navbar}>
+        <Link href="/index"><a>Home</a></Link>
+        <Link href="/protips"><a>Protips</a></Link>
+        <Link href="/katas"><a>Katas</a></Link>
+        <Link href="/signin"><a>Sing in</a></Link>
+        </nav>
       </div>
     )
 }
