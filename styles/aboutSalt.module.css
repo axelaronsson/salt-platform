@@ -1,3 +1,6 @@
+.container{
+    height: 700px;
+}
 .video{
     position: relative;
     top: 0;
@@ -8,7 +11,7 @@
 }
 .content{
     position: relative;
-    bottom: 500px;
+    bottom: 550px;
     color: wheat;
     font-size: 25px;
 }
@@ -19,7 +22,7 @@
 .content button {
     height: 40px;
     width: 100px;
-    background-color: tomato;
+    background-color: #C85C5C;
     color: wheat;
     font-size: 15px;
 }
