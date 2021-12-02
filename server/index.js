@@ -15,7 +15,7 @@ const handle = app.getRequestHandler();
 
 app.prepare().then(() => {
   const server = express();
-
+  
   server.use(bodyParser.urlencoded({ extended: false }));
   server.use(bodyParser.json());
   server.use('/api/videos', videosRouter);
