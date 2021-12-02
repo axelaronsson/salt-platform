@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import NavHome from '../components/NavHome'
 import styles from '../styles/signin.module.css';
 
 const signin = () => {
@@ -12,6 +13,8 @@ const signin = () => {
     setPassword('');
   }
   return (
+    <>
+      <NavHome />
     <div className={styles.container}>
       <div className={styles.imgdiv}>
         <img src='https://i.postimg.cc/6qTb47bJ/signin-image.jpg' />
@@ -29,6 +32,7 @@ const signin = () => {
         </form>
       </div>
     </div>
+    </>
   )
 };
 
