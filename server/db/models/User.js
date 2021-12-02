@@ -50,10 +50,12 @@ admission_date: {
 					throw new Error('user must provide a valid date. e.g. [2021-07-15]');
 			}
 	}
-
 },
 tokens: [{
-	token: {type: String, required: true}
+	token: {
+		type: String,
+		 required: true
+	}
 }]
 });
 
@@ -61,6 +63,7 @@ UserSchema.methods.generateAuthToken = async function () {
 	const user = this;
 	const token = jwt.sign({_id: user._id.toString()}, process.env.AUTH_SECRET);
 	user.tokens = user.tokens.concat({token});
+	await user.save();
 	return token;
 }
 

@@ -92,6 +92,7 @@ const labs = () => {
   };
 
   return (
+    
     <div className={styles.container}>
       <NavPrivate />
 
