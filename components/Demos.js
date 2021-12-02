@@ -1,4 +1,4 @@
-import styles from '../styles/icon.module.css'
+import styles from '../styles/icon.module.css';
 
 const Demos = ({demo}) => {
     return (
@@ -7,6 +7,6 @@ const Demos = ({demo}) => {
  
         </div>
     )
-}
+};
 
-export default Demos
+export default Demos;

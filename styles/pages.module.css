@@ -7,3 +7,27 @@
   align-items: center;
   justify-content: center;
 }
+
+.button{
+  margin: 30px;
+  border: 1px solid black;
+  border-radius: 5px;
+  background-color: transparent;
+  width: 120px;
+  height: 30px;
+}
+.button:hover{
+  border: 1px solid wheat;
+  border-radius: 5px;
+  background-color: black;
+  color: white;
+}
+
+.formdiv{
+  margin: 100px;
+  padding: 50px;
+}
+
+.input{
+  border: 0px;
+}

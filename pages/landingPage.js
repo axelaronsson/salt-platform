@@ -1,6 +1,7 @@
 import NavPrivate from '../components/NavPrivate';
 import Link from 'next/link'
 import styles from '../styles/landnPage.module.css';
+
 const landingPage = () => {
   return (
     <div className={styles.container}>
@@ -31,6 +32,6 @@ const landingPage = () => {
       </Link>
     </div>
   )
-}
+};
 
-export default landingPage
+export default landingPage;
