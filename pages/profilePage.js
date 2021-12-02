@@ -1,9 +1,13 @@
+import NavPrivate from "../components/NavPrivate";
+import styles from '../styles/profile.module.css';
+
 const profilePage = () => {
   return (
-    <div>
+    <div className={styles.container}>
+    <NavPrivate />
       Profile Page
     </div>
   )
-}
+};
 
-export default profilePage
+export default profilePage;

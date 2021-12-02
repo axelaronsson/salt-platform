@@ -1,4 +1,4 @@
-import styles from '../styles/icon.module.css'
+import styles from '../styles/icon.module.css';
 
 const Videos = ({ video }) => {
   return (
@@ -6,6 +6,6 @@ const Videos = ({ video }) => {
       <a target='_blank' href={video.link}><img className ={styles.icon} src='https://i.postimg.cc/6QZTyfkN/2.png'></img></a>
     </>
   )
-}
+};
 
-export default Videos
+export default Videos;
