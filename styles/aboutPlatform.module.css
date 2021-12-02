@@ -1,5 +1,11 @@
 .container{
     font-size: 25px;
+    background-color: #96C7C1;
+    height: 450px;
+    padding-top: 100px
+}
+    .container h3{
+    margin-top: 0;
 }
 .container p{
     padding: 5px 50px;
