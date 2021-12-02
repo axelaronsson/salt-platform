@@ -9,6 +9,6 @@ const NavPrivate = () => {
         <a href="/profilePage"><img className={navStyles.img} src='https://i.postimg.cc/65hQsStg/3.png'/></a>
       </div>
   )
-}
+};
 
 export default NavPrivate;
