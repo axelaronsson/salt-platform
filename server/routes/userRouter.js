@@ -1,7 +1,8 @@
 const express = require('express');
 const userRouter = express.Router();
 const { reqBodyValidator, idValidator, nextId } = require('../errorHandling');
-const User = require('../db/models/User')
+const User = require('../db/models/User');
+const bcrypt = require('bcryptjs');
 require('../db/mogoose');
 
 userRouter
