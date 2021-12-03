@@ -13,30 +13,30 @@ userRouter
     reqBodyValidator(req);
     const user = new User(req.body);
     user.save().then(async (response) => {
-      await user.genrateAuthToken();
       res.send(response)
     });
   });
 
-userRouter.post('/logout',auth, async(req, res)=>{
- req.user.tokens = [];
- req.user.save();
- res.send('loggedOut')
-});
+  
+  userRouter.post('/login', async(req, res) => {
+    console.log('im here');
+    console.log(req.body)
+    try{
+      const user = await User.findByCredentials(req.body.email, req.body.password);
+      const token = await user.generateAuthToken();
+      res.send({user, token});
+    }catch(e){
+      res.status(400).send(e.message)
+    }
+  })
 
-userRouter.post('/login', async(req, res) => {
-  console.log('im here');
-  console.log(req.body)
-  try{
-    const user = await User.findByCredentials(req.body.email, req.body.password);
-    const token = await user.generateAuthToken();
-    res.send({user, token});
-  }catch(e){
-    res.status(400).send(e.message)
-  }
-})
-
-userRouter
+  userRouter.post('/logout',auth, async(req, res)=>{
+   req.user.tokens = [];
+   req.user.save();
+   res.send('loggedOut')
+  });
+  
+  userRouter
   .route('/profile')
   .get(auth, (req, res) => {
     res.send(req.user)

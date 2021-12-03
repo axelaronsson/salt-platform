@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import styles from '../styles/createAccount.module.css'
 import axios from 'axios';
+import NavPrivate from '../components/NavPrivate';
 
 const createAccount = () => {
   const [name, setName] = useState('');
@@ -35,7 +36,7 @@ const createAccount = () => {
   }
   return (
     <div className={styles.container}>
-
+     <NavPrivate />
       <div className={styles.imgdiv}>
         <img src='https://i.postimg.cc/QxWPMByG/signup-image.jpg' />
       </div>
