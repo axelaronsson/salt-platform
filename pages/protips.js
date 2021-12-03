@@ -1,8 +1,9 @@
+import protypsStyles from '../styles/protips.module.css'
 
 const protips = () => {
     return (
-        <div>
-            Pro tips
+        <div className={protypsStyles.container}>
+         Pro tips
         </div>
     )
 }
