@@ -6,7 +6,18 @@ const Prime = () => {
     const [show, setShow] = useState(false)
 
     const handleChange = e => {
-  
+        e.preventDefault();
+        const { value } = e.target;
+        const primeFactors = [];
+        for (let i = 2; i <= value; i++) {
+          while (value % i === 0) {
+            primeFactors.push(i);
+            value /= i;
+          }
+        }
+        setPrime(primeFactors);
+        setShow(false);
+        return;
     }
     return (
         <div className={primeStyles.container}>
