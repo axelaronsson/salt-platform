@@ -9,20 +9,22 @@ const FizzBuzz = () => {
         e.preventDefault();
         const { value } = e.target;
         const num = parseInt(value);
-        if (num < 0 || num > 100) {
-          setFizzBuzz('Please provide a positive number between 1-100');
+        if (num <= 0 || num > 100) {
+            setFizzBuzz('Please provide a positive number between 1-100');
+            return;
         }
         if (num % 3 === 0 && num % 5 === 0) {
-          setFizzBuzz('fizzbuzz');
+            setFizzBuzz('fizzbuzz');
+            return;
         } if (num % 3 === 0) {
-          setFizzBuzz('fizz');
+            setFizzBuzz('fizz');
+            return;
         } if (num % 5 === 0) {
-          setFizzBuzz('buzz');
-        } if (typeof num !== 'number') {
-          setFizzBuzz('Please provide a number. Try again');
-        } 
-        setFizzBuzz(num);
-        setShow(false);
+            setFizzBuzz('buzz');
+            return;
+        } setFizzBuzz(num);
+        setShow(false)
+        return;
     }
     return (
         <div className={fizzBuzzStyles.container}>

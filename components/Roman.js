@@ -7,6 +7,7 @@ const Roman = () => {
 
     const handleChange = e => {
         e.preventDefault();
+        setRoman(e.target.value);
     }
     return (
         <div className={romanStyles.container}>

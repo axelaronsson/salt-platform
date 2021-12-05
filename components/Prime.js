@@ -2,11 +2,11 @@ import { useState } from 'react';
 import primeStyles from '../styles/prime.module.css'
 
 const Prime = () => {
-    const [prime, setPrime] = useState('');
+    const [prime, setPrime] = useState([]);
     const [show, setShow] = useState(false)
 
     const handleChange = e => {
-        e.preventDefault();
+  
     }
     return (
         <div className={primeStyles.container}>
