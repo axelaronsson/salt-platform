@@ -12,7 +12,8 @@ const profilePage = () => {
     if (res.ok) {
       setStatus(res.ok);
     } else {
-      router.push('/signin');
+      setStatus(false);
+      router.push('/loggedOut');
     }
     return () => {
     }
@@ -23,7 +24,7 @@ const profilePage = () => {
       { status ? (<>
     <NavPrivate />
       Profile Page
-      </>) : <h3>Not logged in</h3>}
+      </>) : ''}
     </div>
   )
 };

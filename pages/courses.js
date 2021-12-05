@@ -18,7 +18,7 @@ const courses = () => {
     await setCoursesList(allCourses);
     setStatus(res.ok);
     if (!res.ok) {
-      router.push('/signin')
+      router.push('/loggedOut')
     }
     return allCourses;
   };
@@ -64,7 +64,7 @@ const courses = () => {
       <div className={styles.icons}>
         {coursesList.map((course, index) => <Courses key={index} course={course} />)}
       </div>
-      </>) : <h3>Not logged in</h3>}
+      </>) : ''}
     </div>
   )
 };
