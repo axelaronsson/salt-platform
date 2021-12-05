@@ -2,11 +2,12 @@ const express = require('express');
 const demosRouter = express.Router();
 const { reqBodyValidator, idValidator, nextId } = require('../errorHandling');
 const Demo = require('../db/models/Demo');
+const auth = require('../middleware/auth');
 require('../db/mogoose');
 
 demosRouter
   .route('/')
-  .get((req, res) => Demo.find({}).then(response => res.send(response)))  
+  .get(auth, (req, res) => Demo.find({}).then(response => res.send(response)))  
   .post((req, res) => {
     res.setHeader('content-type', 'application/json');
     reqBodyValidator(req);

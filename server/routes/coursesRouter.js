@@ -2,11 +2,12 @@ const express = require('express');
 const coursesRouter = express.Router();
 const { reqBodyValidator, idValidator, nextId } = require('../errorHandling');
 const Course = require('../db/models/Course')
+const auth = require('../middleware/auth');
 require('../db/mogoose');
 
 coursesRouter
   .route('/')
-  .get((req, res) => Course.find({}).then(response => res.send(response)))
+  .get(auth, (req, res) => Course.find({}).then(response => res.send(response)))
   .post( async (req, res) => {
     res.setHeader('content-type', 'application/json');
     reqBodyValidator(req);

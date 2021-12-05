@@ -11,14 +11,14 @@ const signin = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log(email, password);
+    console.log('signin',email, password);
     const signinUser = {
       email,
       password,
     }
     axios.post('/api/users/login', signinUser)
     .then(function (response) {
-      console.log(response);
+      console.log('signin',response);
     });
     router.push('/landingPage');
     setEmail('');

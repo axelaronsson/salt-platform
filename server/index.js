@@ -1,6 +1,7 @@
 const express = require('express');
 const next = require('next');
 const bodyParser = require('body-parser');
+const cookieParser = require("cookie-parser");
 const videosRouter = require('./routes/videosRouter');
 const slidesRouter = require('./routes/slidesRouter');
 const githubRouter = require('./routes/githubRouter');
@@ -16,6 +17,7 @@ const handle = app.getRequestHandler();
 app.prepare().then(() => {
   const server = express();
   
+  server.use(cookieParser());
   server.use(bodyParser.urlencoded({ extended: false }));
   server.use(bodyParser.json());
   server.use('/api/videos', videosRouter);
