@@ -31,9 +31,7 @@ coursesRouter
   })
   .delete( async (req, res) => {
     const { id } = req.params;
-    // idValidator(id, items);
     await Course.deleteOne({_id: id});
-    console.log(id);
     res.status(204);
     res.end()
   });

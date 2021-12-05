@@ -31,7 +31,6 @@ const courses = () => {
 
   const handleCourseFormSubmit = async(e) => {
     e.preventDefault();
-    console.log(courseDescription, courseLink);
     const newCourse = {
       description: courseDescription,
       link: courseLink

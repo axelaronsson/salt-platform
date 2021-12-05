@@ -60,7 +60,6 @@ const labs = () => {
 
   const handleGithubFormSubmit = async (e) => {
     e.preventDefault();
-    console.log(githubDescription, githubLink);
     const newRepo = {
       description: githubDescription,
       link: githubLink
@@ -74,7 +73,6 @@ const labs = () => {
 
   const handleSlidesFormSubmit = async (e) => {
     e.preventDefault();
-    console.log(slidesDescription, slidesLink);
     const newSlides = {
       description: slidesDescription,
       link: slidesLink
@@ -88,7 +86,6 @@ const labs = () => {
 
   const handleVideosFormSubmit = async (e) => {
     e.preventDefault();
-    console.log(videoDescription, videoLink);
     const newVideo = {
       description: slidesDescription,
       link: slidesLink

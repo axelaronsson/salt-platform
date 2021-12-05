@@ -11,7 +11,6 @@ const signin = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log('signin',email, password);
     const signinUser = {
       email,
       password,

@@ -19,21 +19,18 @@ userRouter
 
   
   userRouter.post('/login', async(req, res) => {
-    console.log('im here');
     try{
       const user = await User.findByCredentials(req.body.email, req.body.password);
       const token = await user.generateAuthToken();
-      // res.send({user, token});
       res.cookie("token", token, {
         httpOnly: true
-      }).send("cookie set");
+      }).send('cookie set');
     }catch(e){
       res.status(400).send(e.message)
     }
   })
 
   userRouter.post('/logout',auth, async(req, res)=>{
-    console.log('logout', req.headers);
    req.user.tokens = [];
    req.user.save();
    res.clearCookie("token").send('loggedOut')
@@ -46,7 +43,7 @@ userRouter
   })
   .put(auth, async (req, res) => {
     const updates = Object.keys(req.body)
-    const allowedUpdates = ['name', 'email', 'password', 'mobile_number', 'admission_date']
+    const allowedUpdates = ['name', 'email', 'password', 'mobile_number', 'bio','imgUrl', 'admission_date']
     const isValidOperation = updates.every((update) => allowedUpdates.includes(update))
 
     if (!isValidOperation) {
