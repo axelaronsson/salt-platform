@@ -1,14 +1,26 @@
 import { useState } from 'react';
 import NavHome from '../components/NavHome'
 import styles from '../styles/signin.module.css';
+import axios from 'axios';
+import { useRouter } from 'next/router';
 
 const signin = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const router = useRouter();
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log(email, password);
+    console.log('signin',email, password);
+    const signinUser = {
+      email,
+      password,
+    }
+    axios.post('/api/users/login', signinUser)
+    .then(function (response) {
+      console.log('signin',response);
+    })
+    .then(() => router.push('/landingPage'));
     setEmail('');
     setPassword('');
   }

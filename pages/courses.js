@@ -1,10 +1,12 @@
 import { useState, useEffect } from "react";
+import router from 'next/router';
 import Courses from "../components/Courses";
 import NavPrivate from "../components/NavPrivate";
 import styles from '../styles/pages.module.css';
 import axios from "axios";
 
 const courses = () => {
+  const [status, setStatus] = useState(false);
   const [coursesList, setCoursesList] = useState([]);
   const [courseLink, setCourseLink] = useState('');
   const [courseDescription, setCourseDescription] = useState('');
@@ -13,7 +15,11 @@ const courses = () => {
   const fetchCourses = async () => {
     const res = await fetch('http://localhost:3000/api/courses')
     const allCourses = await res.json();
-    setCoursesList(allCourses);
+    await setCoursesList(allCourses);
+    setStatus(res.ok);
+    if (!res.ok) {
+      router.push('/loggedOut')
+    }
     return allCourses;
   };
 
@@ -39,6 +45,7 @@ const courses = () => {
 
   return (
     <div className={styles.container}>
+      { status ? (<>
       <NavPrivate />
 
       <h1>Courses</h1>
@@ -57,6 +64,7 @@ const courses = () => {
       <div className={styles.icons}>
         {coursesList.map((course, index) => <Courses key={index} course={course} />)}
       </div>
+      </>) : ''}
     </div>
   )
 };

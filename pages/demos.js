@@ -1,10 +1,12 @@
 import { useState, useEffect } from "react";
+import router from 'next/router';
 import Demos from "../components/Demos";
 import NavPrivate from "../components/NavPrivate";
 import styles from '../styles/pages.module.css';
 import axios from "axios";
 
 const demos = () => {
+  const [status, setStatus] = useState(false);
   const [demosList, setDemosList] = useState([]);
   const [demoLink, setDemoLink] = useState('');
   const [demoDescription, setDemoDescription] = useState('');
@@ -13,7 +15,11 @@ const demos = () => {
   const fetchDemos = async () => {
     const res = await fetch('http://localhost:3000/api/demos')
     const allDemos = await res.json();
-    setDemosList(allDemos);
+    await setDemosList(allDemos);
+    setStatus(res.ok);
+    if (!res.ok) {
+      router.push('/loggedOut')
+    }
     return allDemos;
   };
 
@@ -39,6 +45,7 @@ const demos = () => {
 
   return (
     <div className={styles.container}>
+      { status ? (<>
       <NavPrivate />
       <h1>Demos</h1>
       {!demoToggle && (
@@ -56,6 +63,7 @@ const demos = () => {
       <div className={styles.icons}>
         {demosList.map((demo, index) => <Demos key={index} demo={demo} />)}
       </div>
+      </>) : ''}
     </div>
   )
 };

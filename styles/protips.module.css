@@ -1,0 +1,16 @@
+.container{
+    text-align: center;
+}
+.container a{
+    color: rgb(74, 74, 255);
+}
+.container ul {
+    padding: 0;
+}
+.container li{
+    list-style-type: none;
+}
+.header{
+    padding-top: 80px;
+    padding-bottom: 40px;
+}
