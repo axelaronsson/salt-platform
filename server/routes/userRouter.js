@@ -20,20 +20,23 @@ userRouter
   
   userRouter.post('/login', async(req, res) => {
     console.log('im here');
-    console.log(req.body)
     try{
       const user = await User.findByCredentials(req.body.email, req.body.password);
       const token = await user.generateAuthToken();
-      res.send({user, token});
+      // res.send({user, token});
+      res.cookie("token", token, {
+        httpOnly: true
+      }).send("cookie set");
     }catch(e){
       res.status(400).send(e.message)
     }
   })
 
-  userRouter.post('/logout',auth, async(req, res)=>{
+  userRouter.get('/logout',auth, async(req, res)=>{
+    console.log('logout', req.headers);
    req.user.tokens = [];
    req.user.save();
-   res.send('loggedOut')
+   res.clearCookie("token").send('loggedOut')
   });
   
   userRouter

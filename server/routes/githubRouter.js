@@ -2,11 +2,12 @@ const express = require('express');
 const githubRouter = express.Router();
 const { reqBodyValidator, idValidator, nextId } = require('../errorHandling');
 const Github = require('../db/models/Github');
+const auth = require('../middleware/auth')
 require('../db/mogoose');
 
 githubRouter
   .route('/')
-  .get((req, res) => Github.find({}).then(response => res.send(response)))  
+  .get(auth, (req, res) => Github.find({}).then(response => res.send(response)))  
   .post((req, res) => {
     res.setHeader('content-type', 'application/json');
     reqBodyValidator(req);

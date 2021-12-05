@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import router, { useRouter } from 'next/router';
 import NavPrivate from "../components/NavPrivate";
 import Videos from "../components/Videos";
 import Github from "../components/Github";
@@ -41,10 +42,15 @@ const labs = () => {
     return allSlides;
   };
 
-  useEffect(() => {
-    fetchGithub();
-    fetchSlides();
-    fetchVideos();
+  useEffect( async () => {
+    const res = await fetch('http://localhost:3000/api/github')
+    if (res.ok) {
+      fetchGithub();
+      fetchSlides();
+      fetchVideos();
+    } else {
+      router.push('/signin');
+    }
     return () => {
     }
   }, []);
@@ -92,7 +98,6 @@ const labs = () => {
   };
 
   return (
-    
     <div className={styles.container}>
       <NavPrivate />
 

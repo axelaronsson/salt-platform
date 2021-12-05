@@ -3,9 +3,11 @@ require('dotenv').config();
 const User = require('../db/models/User');
 
 const auth = (async (req, res, next) => {
+    console.log('auth middleware',req.cookies.token)
     try {
-        const token = req.header('Authorization').replace('Bearer ', '');
-        console.log(token);
+        // const token = req.header('Authorization').replace('Bearer ', '');
+        const token = req.cookies.token;
+        // console.log(token);
         const decode = jwt.verify(token, process.env.AUTH_SECRET);
         const user = await User.findOne({_id: decode._id, 'tokens.token':token})
         if(!user){
