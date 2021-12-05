@@ -11,6 +11,14 @@ const UserSchema = new Schema({
 		required: true,
 		trim: true
 	},
+	imgUrl:{
+		type: String,
+		required: false,
+	},
+	bio:{
+		type:String,
+		required:false
+	},
 	email: {
 		type: String,
 		unique: true,
@@ -61,9 +69,10 @@ tokens: [{
 
 UserSchema.methods.generateAuthToken = async function () {
 	const user = this;
-	const token = jwt.sign({_id: user._id.toString()}, process.env.AUTH_SECRET);
+	const token = jwt.sign({_id: user._id.toString()}, process.env.NEXT_PUBLIC_AUTH_SECRET);
 	user.tokens = user.tokens.concat({token});
 	await user.save();
+	console.log(token);
 	return token;
 }
 
@@ -81,8 +90,6 @@ UserSchema.statics.findByCredentials = async (email, password) => {
 
 UserSchema.pre('save',async function(next){
   const user = this;
-	console.log(validator.isMobilePhone('ss'));
-	console.log('just before saving');
 	if(user.isModified('password')){
 		user.password = await bcrypt.hash(user.password, 8)
 	}

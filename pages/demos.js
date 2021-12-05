@@ -31,7 +31,6 @@ const demos = () => {
 
   const handleDemoFormSubmit = async (e) => {
     e.preventDefault();
-    console.log(demoDescription, demoLink);
     const newDemo = {
      description: demoDescription,
      link: demoLink

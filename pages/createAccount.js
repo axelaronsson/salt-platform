@@ -12,7 +12,6 @@ const createAccount = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    // console.log(email, password);
     const newAccount = {
       name,
       email,
