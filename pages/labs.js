@@ -8,6 +8,7 @@ import styles from '../styles/pages.module.css';
 import axios from "axios";
 
 const labs = () => {
+  const [status, setStatus] = useState(false);
   const [slides, setSlides] = useState([]);
   const [videos, setVideos] = useState([]);
   const [githubLinks, setGithub] = useState([]);
@@ -45,11 +46,13 @@ const labs = () => {
   useEffect( async () => {
     const res = await fetch('http://localhost:3000/api/github')
     if (res.ok) {
+      console.log(res);
+      setStatus(res.ok)
       fetchGithub();
       fetchSlides();
       fetchVideos();
     } else {
-      router.push('/signin');
+      router.push('/loggedOut');
     }
     return () => {
     }
@@ -99,6 +102,7 @@ const labs = () => {
 
   return (
     <div className={styles.container}>
+      { status ? (<>
       <NavPrivate />
 
       <h2>Github</h2>
@@ -151,6 +155,7 @@ const labs = () => {
       <div className={styles.icons}>
         {videos.map((video, index) => <Videos key={index} video={video} />)}
       </div>
+      </>) : ''}
     </div>
   )
 };

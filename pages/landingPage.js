@@ -12,9 +12,11 @@ const landingPage = () => {
   useEffect( async () => {
     const res = await fetch('http://localhost:3000/api/github')
     if (res.ok) {
-      setStatus(true);
+      console.log(res);
+      setStatus(res.ok);
     } else {
-      router.push('/signin');
+      setStatus(false)
+      router.push('/loggedOut');
     }
     return () => {
     }
@@ -48,7 +50,7 @@ const landingPage = () => {
           </div>
         </a>
       </Link>
-      </>) : <h3>Not logged in</h3>}
+      </>) : ''}
     </div>
   )
 };

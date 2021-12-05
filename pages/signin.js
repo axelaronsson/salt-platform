@@ -19,8 +19,8 @@ const signin = () => {
     axios.post('/api/users/login', signinUser)
     .then(function (response) {
       console.log('signin',response);
-    });
-    router.push('/landingPage');
+    })
+    .then(() => router.push('/landingPage'));
     setEmail('');
     setPassword('');
   }

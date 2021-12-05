@@ -32,7 +32,7 @@ userRouter
     }
   })
 
-  userRouter.get('/logout',auth, async(req, res)=>{
+  userRouter.post('/logout',auth, async(req, res)=>{
     console.log('logout', req.headers);
    req.user.tokens = [];
    req.user.save();

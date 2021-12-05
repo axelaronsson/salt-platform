@@ -18,7 +18,7 @@ const demos = () => {
     await setDemosList(allDemos);
     setStatus(res.ok);
     if (!res.ok) {
-      router.push('/signin')
+      router.push('/loggedOut')
     }
     return allDemos;
   };
@@ -63,7 +63,7 @@ const demos = () => {
       <div className={styles.icons}>
         {demosList.map((demo, index) => <Demos key={index} demo={demo} />)}
       </div>
-      </>) : <h3>Not Logged in</h3>}
+      </>) : ''}
     </div>
   )
 };
