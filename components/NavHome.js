@@ -11,7 +11,7 @@ const NavHome = () => {
         <Link href="/index"><a>Home</a></Link>
         <Link href="/protips"><a>Protips</a></Link>
         <Link href="/katas"><a>Katas</a></Link>
-        <Link href="/signin"><a>Sing in</a></Link>
+        <Link href="/signin"><a>Sign in</a></Link>
         </nav>
       </div>
     )
