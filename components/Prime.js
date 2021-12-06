@@ -15,7 +15,7 @@ const Prime = () => {
             value /= i;
           }
         }
-        setPrime(primeFactors);
+        setPrime(primeFactors.toString());
         setShow(false);
         return;
     }
@@ -24,19 +24,18 @@ const Prime = () => {
             <h2>Prime Factor</h2>
             <h3>What are Prime Factors?</h3>
             <p>Factors: The numbers which are multiplied to get another number (3 and 5 are the factors of
-                15, i.e. 3 × 5 = 15).Prime Factors: A factor which is a prime number and not a composite number is a
+                15, i.e. 3 × 5 = 15). Prime Factors: A factor which is a prime number and not a composite number is a
                 prime factor. Type a number and get Prime Factors.</p>
             <div className={primeStyles.form}>
                 <input type="text" placeholder="Enter a number" onChange={handleChange}></input>
                 <button onClick={() => setShow(true)}>Find out</button>
-            </div>
             {
                 show ?
-                    <p>{prime}</p>
-                    : null
+                <p className={primeStyles.result}>{prime}</p>
+                : null
             }
-            <br />
-            <p><a href="https://en.wikipedia.org/wiki/Prime_number" target="_blank">Learn more</a> about Prime Kata</p>
+            </div>
+            <p className={primeStyles.wiki}><a href="https://en.wikipedia.org/wiki/Prime_number" target="_blank">Learn more</a> about Prime Kata</p>
         </div>
     )
 }
