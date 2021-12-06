@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import axios from "axios";
+import styles from '../styles/profile.module.css';
 
 const ImageUpload = ({ uploadImg }) => {
   const token = process.env.NEXT_PUBLIC_CLOUDINARY_TOKEN;
@@ -34,7 +35,8 @@ const ImageUpload = ({ uploadImg }) => {
 
   return (
     <div>
-      <input type="file" name="myImage" onChange={imageUpload} />
+      <label htmlFor="files" className={styles.file}> Select Image </label>
+      <input id="files" type="file" style={{ visibility: "hidden" }} onChange={imageUpload} />
     </div>
   )
 }

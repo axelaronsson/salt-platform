@@ -40,7 +40,7 @@ const Roman = () => {
                 <button onClick={() => setShow(true)}>Find out</button>
             {
               show ?
-              <p>{roman}</p>
+              <p className={romanStyles.result}>{roman}</p>
               : null
             }
             </div>

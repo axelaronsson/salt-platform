@@ -11,13 +11,13 @@ const UserSchema = new Schema({
 		required: true,
 		trim: true
 	},
-	imgUrl:{
+	imgUrl: {
 		type: String,
 		required: false,
 	},
-	bio:{
-		type:String,
-		required:false
+	bio: {
+		type: String,
+		required: false
 	},
 	email: {
 		type: String,
@@ -46,31 +46,31 @@ const UserSchema = new Schema({
 	mobile_number: {
 		type: String,
 		validate(value) {
-				if (!validator.isMobilePhone(value)) {
-						throw new Error('user must provide a valid phone number');
-				}
-		}
-},
-admission_date: {
-	type: String,
-	validate(value) {
-			if (!validator.isDate(value)) {
-					throw new Error('user must provide a valid date. e.g. [2021-07-15]');
+			if (!validator.isMobilePhone(value)) {
+				throw new Error('user must provide a valid phone number');
 			}
-	}
-},
-tokens: [{
-	token: {
+		}
+	},
+	admission_date: {
 		type: String,
-		 required: true
-	}
-}]
+		validate(value) {
+			if (!validator.isDate(value)) {
+				throw new Error('user must provide a valid date. e.g. [2021-07-15]');
+			}
+		}
+	},
+	tokens: [{
+		token: {
+			type: String,
+			required: true
+		}
+	}]
 });
 
 UserSchema.methods.generateAuthToken = async function () {
 	const user = this;
-	const token = jwt.sign({_id: user._id.toString()}, process.env.NEXT_PUBLIC_AUTH_SECRET);
-	user.tokens = user.tokens.concat({token});
+	const token = jwt.sign({ _id: user._id.toString() }, process.env.NEXT_PUBLIC_AUTH_SECRET);
+	user.tokens = user.tokens.concat({ token });
 	await user.save();
 	console.log(token);
 	return token;
@@ -78,19 +78,19 @@ UserSchema.methods.generateAuthToken = async function () {
 
 UserSchema.statics.findByCredentials = async (email, password) => {
 	const user = await User.findOne({ email });
-	if(!user){
+	if (!user) {
 		throw new Error('unable to login')
 	}
 	const isMatch = await bcrypt.compare(password, user.password)
-	if(!isMatch){
+	if (!isMatch) {
 		throw new Error('wrong password')
 	}
 	return user;
 };
 
-UserSchema.pre('save',async function(next){
-  const user = this;
-	if(user.isModified('password')){
+UserSchema.pre('save', async function (next) {
+	const user = this;
+	if (user.isModified('password')) {
 		user.password = await bcrypt.hash(user.password, 8)
 	}
 	next();

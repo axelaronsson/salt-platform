@@ -22,7 +22,6 @@
     "nodemon": "^2.0.15",
     "react": "17.0.2",
     "react-dom": "17.0.2",
-    "react-images-upload": "^1.2.8",
     "react-router-dom": "^6.0.2",
     "validator": "^13.7.0"
   },

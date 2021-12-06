@@ -1,10 +1,29 @@
 .container{
     text-align: center;
-    margin: auto;
     border: 5px solid #C85C5C;
-    border-radius: 10px;
+    border-radius: 15px;
+    padding: 0 15px;
     margin-top: 30px;
 }
 .container a{
     color: blue;
+}
+.wiki{
+    font-size: 15px;
+}
+
+.form input,
+.form button{
+    border: 5px solid #C85C5C;
+    border-radius: 10px;
+}
+.form input{
+    height: 40px;
+    width: 150px;
+}
+.form button{
+    height: 40px;
+    width: 75px;
+    background-color: #C85C5C;
+    margin-left: 10px;
 }

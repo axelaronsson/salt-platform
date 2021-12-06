@@ -8,6 +8,7 @@
 }
 .container ul {
     padding: 0;
+    text-align: left;
 }
 .container li{
     list-style-type: none;
@@ -17,6 +18,7 @@
     padding-top: 80px;
     padding-bottom: 40px;
 }
+
 .programmer,
 .tools,
 .javascript,
@@ -27,8 +29,11 @@
     display: grid;
     justify-content: center;
     grid-template-columns: 500px 500px;
-    background-color: #99A799;
+    background-color: #96C7C1;
     margin: 20px 100px;
     border-radius: 10px;
-    box-shadow: 10px 0px 20px rgb(69, 68, 68);
+    box-shadow: 10px 0px 20px rgb(139, 139, 139);
+}
+.categories h3{
+    text-align: left;
 }
