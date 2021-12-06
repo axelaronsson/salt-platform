@@ -65,6 +65,10 @@ const profilePage = ({ userToken }) => {
     <div className={styles.container}>
       {status ? (<>
         <NavPrivate />
+        <div className={styles.title}>
+          <h1 className={styles.headar}>Profile Page</h1>
+          <h1></h1>
+        </div>
         <div className={styles.header}>
           <div>
             <img src={profile.imgUrl} className={styles.img} />
