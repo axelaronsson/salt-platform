@@ -11,7 +11,8 @@ const profilePage = ({ userToken }) => {
   const [toggle, setToggle] = useState(false);
   const [status, setStatus] = useState(false);
   const [imageUrl, setImageUrl] = useState('');
-  const jwtToken = `Bearer ${userToken}`
+
+  const jwtToken = `Bearer ${userToken}`;
 
   const fetchProfileData = () => {
     fetch('http://localhost:3000/api/users/profile', {
