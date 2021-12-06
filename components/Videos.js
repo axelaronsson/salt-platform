@@ -1,10 +1,21 @@
 import styles from '../styles/icon.module.css';
+import Image from 'next/image';
 
 const Videos = ({ video }) => {
+  console.log(video);
+  const src = 'https://i.postimg.cc/6QZTyfkN/2.png';
   return (
-    <>
-      <a target='_blank' href={video.link}><img className ={styles.icon} src='https://i.postimg.cc/6QZTyfkN/2.png'></img>{video.description}</a>
-    </>
+    <div className ={styles.icon}>
+      <a target='_blank' rel="noreferrer" href={video.link}>
+      <Image
+      loader={() => src}
+      src={src}
+      alt="slides Icon"
+      width={500}
+      height={500}
+      />
+      {video.description}</a>
+    </div>
   )
 };
 
