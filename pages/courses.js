@@ -46,8 +46,14 @@ const courses = () => {
     <div className={styles.container}>
       { status ? (<>
       <NavPrivate />
-
-      <h1>Courses</h1>
+      <div className={styles.title}>
+      <h1 className={styles.courses__header}>Courses</h1>
+      <h1></h1>
+      </div>
+      <div className={styles.description}>
+      <p className={styles.p}>handpicked courses of multiple topics that our bootcamp is focused on.</p>
+      <p></p>
+      </div>
       {!courseToggle && (
         <button className={styles.button} onClick={() => setCourseToggle(show => !show)}>Add Course</button>
       )}

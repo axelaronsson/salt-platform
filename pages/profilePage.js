@@ -66,9 +66,13 @@ const profilePage = () => {
     <div className={styles.container}>
       { status ? (<>
     <NavPrivate profilepic={profile.imgUrl}/>
-      <img src={profile.imgUrl} />
-      <h2>{profile.name}</h2>
-      <p className={styles.info}>{profile.bio}</p>
+      <div className={styles.header}>
+      <div>
+      <img src={profile.imgUrl} className={styles.img}/>
+      </div>
+      <div>
+      <h2 className={styles.name}>{profile.name}</h2>
+      <p className={styles.bio}>{profile.bio}</p>
       {!toggle && (
         <button onClick={()=> setToggle(show=>!show)}>Edit Profile</button>
       )}
@@ -79,12 +83,17 @@ const profilePage = () => {
         <label><strong>Password:</strong></label>
         <input value={password} onChange={({target:{ value }}) => setPassword(value)} />
          <ImageUpload uploadImg={({ target: { value } })=> setImageUrl(value)} />
-        <button type='submit'>Confirm</button>
+        <button className={styles.button} type='submit'>Confirm</button>
       </form>
       )}
-      <p className={styles.info}>Email: <span className={styles.db}>{profile.email}</span></p>
-      <p className={styles.info}>Mobile: <span className={styles.db}>{profile.mobile_number}</span></p>
-      <p className={styles.info}>Admission date: <span className={styles.db}>{profile.admission_date}</span></p>
+      </div>
+      </div>
+
+      <div className={styles.info}>
+      <p className={styles.info}><strong>Email</strong>{profile.email}</p>
+      <p className={styles.info}><strong>Mobile</strong>{profile.mobile_number}</p>
+      <p className={styles.info}><strong>Admission date</strong>{profile.admission_date}</p>
+      </div>
       </>) : ''}
     </div>
   )
