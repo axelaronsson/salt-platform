@@ -29,14 +29,13 @@ const Prime = () => {
             <div className={primeStyles.form}>
                 <input type="text" placeholder="Enter a number" onChange={handleChange}></input>
                 <button onClick={() => setShow(true)}>Find out</button>
-            </div>
             {
                 show ?
-                    <p>{prime}</p>
-                    : null
+                <p>{prime}</p>
+                : null
             }
-            <br />
-            <p><a href="https://en.wikipedia.org/wiki/Prime_number" target="_blank">Learn more</a> about Prime Kata</p>
+            </div>
+            <p className={primeStyles.wiki}><a href="https://en.wikipedia.org/wiki/Prime_number" target="_blank">Learn more</a> about Prime Kata</p>
         </div>
     )
 }

@@ -38,14 +38,13 @@ const Roman = () => {
             <div className={romanStyles.form}>
                 <input type="text" id="roman-input" placeholder="Enter a number" onChange={handleChange}></input>
                 <button onClick={() => setShow(true)}>Find out</button>
-            </div>
             {
-                show ?
-                    <p>{roman}</p>
-                    : null
+              show ?
+              <p>{roman}</p>
+              : null
             }
-            <br />
-            <p><a href="https://en.wikipedia.org/wiki/Roman_numerals" target="_blank">Learn more</a> about Roman Kata</p>
+            </div>
+            <p className={romanStyles.wiki}><a href="https://en.wikipedia.org/wiki/Roman_numerals" target="_blank">Learn more</a> about Roman Kata</p>
         </div>
     )
 }
