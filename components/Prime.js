@@ -15,7 +15,7 @@ const Prime = () => {
             value /= i;
           }
         }
-        setPrime(primeFactors);
+        setPrime(primeFactors.toString());
         setShow(false);
         return;
     }
