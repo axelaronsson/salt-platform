@@ -1,3 +1,51 @@
 .container{
   text-align: center;
 }
+.bio{
+  text-align: left;
+  width: 400px;
+  margin-left: 50px;
+}
+.header{
+  margin-top: 190px;
+  display: flex;
+  justify-content: center;
+}
+.info{
+margin-top: 30px;
+text-align: left;
+display: flex;
+flex-direction: column;
+justify-content: center;
+align-items: center;
+}
+.button{
+  margin-top: 5px;
+  background-color: transparent;
+  border-radius: 3px;
+  border: 1px solid black;
+  width: 90px;
+  height: 25px;
+}
+.button:hover{
+background-color: black;
+color:white;
+}
+.img{
+  width: 180px;
+  height: 150px;
+  border-radius: 30px;
+}
+.file{
+ border: 1px solid black;
+ display: flex;
+ width: 210px;
+ margin: auto;
+ margin-top: 30px;
+ justify-content: center;
+ text-align: center;
+}
+.file:hover{
+ background-color: black;
+ color: blanchedalmond;
+}

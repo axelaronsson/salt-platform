@@ -101,8 +101,17 @@ const labs = () => {
     <div className={styles.container}>
       { status ? (<>
       <NavPrivate />
+      <div className={styles.title}>
+      <h1 className={styles.labs__header}> Labs</h1>
+      <h1></h1>
+      </div>
+      <div className={styles.description}>
+      <p className={styles.p}>a solid understanding of the bootcamps labs and
+       is guranteed to give you a better tests.</p>
+      <p></p>
+      </div>
 
-      <h2>Github</h2>
+      <h3>Github</h3>
       {!githubToggle && (
         <button className={styles.button} onClick={() => setGithubToggle(show => !show)}>Add Repo</button>
       )}

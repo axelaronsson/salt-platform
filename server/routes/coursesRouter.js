@@ -8,7 +8,7 @@ require('../db/mogoose');
 coursesRouter
   .route('/')
   .get(auth, (req, res) => Course.find({}).then(response => res.send(response)))
-  .post( async (req, res) => {
+  .post(async (req, res) => {
     res.setHeader('content-type', 'application/json');
     reqBodyValidator(req);
     const course = new Course(req.body);
@@ -29,9 +29,9 @@ coursesRouter
     res.status(204);
     res.end();
   })
-  .delete( async (req, res) => {
+  .delete(async (req, res) => {
     const { id } = req.params;
-    await Course.deleteOne({_id: id});
+    await Course.deleteOne({ _id: id });
     res.status(204);
     res.end()
   });

@@ -23,7 +23,8 @@ userRouter
       const user = await User.findByCredentials(req.body.email, req.body.password);
       const token = await user.generateAuthToken();
       res.cookie("token", token, {
-        httpOnly: true
+        httpOnly: false,
+        secure:true
       }).send('cookie set');
     }catch(e){
       res.status(400).send(e.message)

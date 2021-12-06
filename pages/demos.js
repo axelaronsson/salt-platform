@@ -46,7 +46,14 @@ const demos = () => {
     <div className={styles.container}>
       { status ? (<>
       <NavPrivate />
-      <h1>Demos</h1>
+      <div className={styles.title}>
+      <h1 className={styles.demos__header}>Demos</h1>
+      <h1></h1>
+      </div>
+      <div className={styles.description}>
+      <p className={styles.p}>place where you can submit your demos so other colleagues can benfit from it.</p>
+      <p></p>
+      </div>
       {!demoToggle && (
         <button className={styles.button} onClick={() => setDemoToggle(show => !show)}>Add Demo</button>
       )}
