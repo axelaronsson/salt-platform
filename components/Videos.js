@@ -5,16 +5,17 @@ const Videos = ({ video }) => {
   console.log(video);
   const src = 'https://i.postimg.cc/6QZTyfkN/2.png';
   return (
-    <div className ={styles.icon}>
+    <div className={styles.icon}>
       <a target='_blank' rel="noreferrer" href={video.link}>
-      <Image
-      loader={() => src}
-      src={src}
-      alt="slides Icon"
-      width={500}
-      height={500}
-      />
-      {video.description}</a>
+        <Image
+          loader={() => src}
+          unoptimized={true}
+          src={src}
+          alt="videos Icon"
+          width={500}
+          height={500}
+        />
+        {video.description}</a>
     </div>
   )
 };
