@@ -74,15 +74,15 @@ const profilePage = () => {
       <h2 className={styles.name}>{profile.name}</h2>
       <p className={styles.bio}>{profile.bio}</p>
       {!toggle && (
-        <button onClick={()=> setToggle(show=>!show)}>Edit Profile</button>
+        <button className={styles.button} onClick={()=> setToggle(show=>!show)}>Edit Profile</button>
       )}
       {toggle && (
       <form onSubmit={handleBio}>
-        <label><strong>Bio:</strong></label>
+        <label><strong>Bio: </strong></label>
         <input value={bio} onChange={({target:{ value }}) => setBio(value)} />
-        <label><strong>Password:</strong></label>
+        <label><strong> Password: </strong></label>
         <input value={password} onChange={({target:{ value }}) => setPassword(value)} />
-         <ImageUpload uploadImg={({ target: { value } })=> setImageUrl(value)} />
+        <ImageUpload uploadImg={({ target: { value } })=> setImageUrl(value)} />
         <button className={styles.button} type='submit'>Confirm</button>
       </form>
       )}
