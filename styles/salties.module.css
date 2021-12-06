@@ -3,3 +3,30 @@
   align-items: center;
   justify-content: center;
 }
+.title{
+  display: flex;
+  justify-content:space-evenly;
+}
+
+.header{
+  height: 80px;
+    max-width: 320px;
+    margin-bottom: 8px;
+    box-sizing: border-box;
+    text-align: left;
+    border-left: 12px solid;
+    border-color: rgb(161, 74, 108);
+}
+.p{
+  margin-right: 20px;
+  text-align: left;
+  color:rgb(134, 134, 134);
+  max-width: 890px;
+  font-size: 20px;
+}
+
+.description{
+  display: flex;
+  justify-content:space-evenly;
+  margin-left: 160px;
+}
