@@ -65,8 +65,7 @@ const profilePage = () => {
   return (
     <div className={styles.container}>
       { status ? (<>
-    <NavPrivate />
-    <NavPrivate />
+    <NavPrivate profilepic={profile.imgUrl}/>
       <img src={profile.imgUrl} />
       <h2>{profile.name}</h2>
       <p className={styles.info}>{profile.bio}</p>

@@ -2,6 +2,51 @@
   text-align: center;
 }
 
+.title{
+  display: flex;
+  justify-content:space-evenly;
+}
+.labs__header{
+  height: 80px;
+    max-width: 320px;
+    margin-bottom: 8px;
+    box-sizing: border-box;
+    text-align: left;
+    border-left: 12px solid;
+    border-color: #96C7C1;
+}
+.courses__header{
+  height: 80px;
+    max-width: 320px;
+    margin-bottom: 8px;
+    box-sizing: border-box;
+    text-align: left;
+    border-left: 12px solid;
+    border-color: #C85C5C;
+}
+.demos__header{
+  height: 80px;
+    max-width: 320px;
+    margin-bottom: 8px;
+    box-sizing: border-box;
+    text-align: left;
+    border-left: 12px solid;
+    border-color: #99A799;
+}
+
+.description{
+  display: flex;
+  justify-content:space-evenly;
+  margin-left: 160px;
+}
+.p{
+  margin-right: 20px;
+  text-align: left;
+  color:rgb(134, 134, 134);
+  max-width: 400px;
+  font-size: 20px;
+}
+
 .icons{
   display: flex;
   align-items: center;
