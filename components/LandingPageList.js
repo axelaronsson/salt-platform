@@ -4,15 +4,14 @@ import React, { useState, useEffect } from 'react';
 import { useRouter } from 'next/router';
 
 const LandingPageList = () => {
-  const [status, setStatus] = useState(false);
+  const [isGranted, setIsGranted] = useState(false);
   const router = useRouter();
 
   const checkAuth = async () => {
-    const res = await fetch('http://localhost:3000/api/github')
+    const res = await fetch('http://localhost:3000/api/users/authorize');
     if (res.ok) {
-      return setStatus(res.ok);
+      setIsGranted(res.ok);
     } else {
-      setStatus(false);
      return router.push('/loggedOut');
     }
   };
@@ -25,7 +24,7 @@ const LandingPageList = () => {
 
   return (
     <div className={styles.container}>
-      {status ? (<>
+      {isGranted ? (<>
         <Link href="/courses">
           <a>
             <div className={styles.courses}>
