@@ -3,7 +3,7 @@ import Card from "./Card";
 import NavPrivate from "./NavPrivate";
 import styles from "../styles/salties.module.css";
 
-const salties = ({ userToken }) => {
+const SaltiesComponent = ({ userToken }) => {
   const jwtToken = `Bearer ${userToken}`;
   const [salties, setSalties] = useState([]);
 
@@ -38,4 +38,4 @@ const salties = ({ userToken }) => {
   )
 }
 
-export default salties
+export default SaltiesComponent;

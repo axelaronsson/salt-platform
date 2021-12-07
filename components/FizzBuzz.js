@@ -43,7 +43,7 @@ const FizzBuzz = () => {
             : null
         }
       </div>
-      <p className={fizzBuzzStyles.wiki}><a href="https://en.wikipedia.org/wiki/Fizz_buzz" target="_blank">Learn more</a> about FizzBuzz Kata</p>
+      <p className={fizzBuzzStyles.wiki}><a href="https://en.wikipedia.org/wiki/Fizz_buzz" rel="noreferrer" target="_blank">Learn more</a> about FizzBuzz Kata</p>
     </div>
   )
 }

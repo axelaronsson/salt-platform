@@ -5,7 +5,7 @@ import axios from 'axios';
 import { useRouter } from 'next/router';
 import Image from 'next/image';
 
-const signin = () => {
+const SigninComponent = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const router = useRouter();
@@ -56,4 +56,4 @@ const signin = () => {
   )
 };
 
-export default signin;
+export default SigninComponent;

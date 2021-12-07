@@ -3,7 +3,7 @@ import styles from '../styles/createAccount.module.css'
 import axios from 'axios';
 import NavPrivate from './NavPrivate';
 
-const createAccount = () => {
+const CreateAccountComponent = () => {
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
@@ -66,4 +66,4 @@ const createAccount = () => {
   )
 };
 
-export default createAccount;
+export default CreateAccountComponent;
