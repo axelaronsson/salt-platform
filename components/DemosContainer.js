@@ -5,7 +5,7 @@ import NavPrivate from "./NavPrivate";
 import styles from '../styles/pages.module.css';
 import axios from "axios";
 
-const demos = () => {
+const DemosContainer = () => {
   const [status, setStatus] = useState(false);
   const [demosList, setDemosList] = useState([]);
   const [demoLink, setDemoLink] = useState('');
@@ -74,4 +74,4 @@ const demos = () => {
   )
 };
 
-export default demos;
+export default DemosContainer;
