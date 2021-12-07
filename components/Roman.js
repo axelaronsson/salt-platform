@@ -44,7 +44,7 @@ const Roman = () => {
               : null
             }
             </div>
-            <p className={romanStyles.wiki}><a href="https://en.wikipedia.org/wiki/Roman_numerals" target="_blank">Learn more</a> about Roman Kata</p>
+            <p className={romanStyles.wiki}><a href="https://en.wikipedia.org/wiki/Roman_numerals" rel="noreferrer" target="_blank">Learn more</a> about Roman Kata</p>
         </div>
     )
 }
