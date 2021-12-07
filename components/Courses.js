@@ -5,18 +5,16 @@ const Courses = ({ course }) => {
 
   return (
     <div className={styles.icon}>
-      <a target='_blank' rel="noreferrer" href={course.link}>
-        <div className={styles.row}>
-          <span><Image
-          src="/assets/co.jpg"
-          alt="courses Icon"
-          width={500}
-          height={500}
-        />
-        </span>
-        <span>{course.description}</span>
+      <a target='_blank' rel="noreferrer" href={course.link}/>
+        <div className={styles.img}>
+            <Image
+              src="/assets/co.jpg"
+              alt="courses Icon"
+              width={500}
+              height={500}
+            />
         </div>
-      </a>
+        <span className={styles.description}>{course.description}</span>
     </div>
   )
 };
