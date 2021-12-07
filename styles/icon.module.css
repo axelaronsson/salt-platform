@@ -1,4 +1,8 @@
 .icon{
-  width: 80px;
-  height: 80px;
+  width: 60px;
+  height: 60px;
+  margin: 30px 40px;
 }
+/* .row{
+  display: inline-block;
+} */

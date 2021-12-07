@@ -54,6 +54,9 @@ const AllCourses = () => {
       <p className={styles.p}>handpicked courses of multiple topics that our bootcamp is focused on.</p>
       <p></p>
       </div>
+      <div className={styles.icons}>
+        {coursesList.map((course, index) => <Courses key={index} course={course} />)}
+      </div>
       {!courseToggle && (
         <button className={styles.button} onClick={() => setCourseToggle(show => !show)}>Add Course</button>
       )}
@@ -66,9 +69,6 @@ const AllCourses = () => {
           <button className={styles.button} type='submit'>Add</button>
         </form>
       )}
-      <div className={styles.icons}>
-        {coursesList.map((course, index) => <Courses key={index} course={course} />)}
-      </div>
       </>) : ''}
     </div>
   )
