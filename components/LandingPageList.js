@@ -7,21 +7,22 @@ const LandingPageList = () => {
   const [status, setStatus] = useState(false);
   const router = useRouter();
 
-  const checkAuth = async () => {
-    const res = await fetch('http://localhost:3000/api/github')
-    if (res.ok) {
-      return setStatus(res.ok);
-    } else {
-      setStatus(false);
-     return router.push('/loggedOut');
-    }
-  };
+
 
   useEffect(() => {
+    const checkAuth = async () => {
+      const res = await fetch('http://localhost:3000/api/github')
+      if (res.ok) {
+        return setStatus(res.ok);
+      } else {
+        setStatus(false);
+       return router.push('/loggedOut');
+      }
+    };
     checkAuth();
     return () => {
     }
-  }, []);
+  }, [router]);
 
   return (
     <div className={styles.container}>

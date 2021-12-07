@@ -64,7 +64,8 @@ const UserSchema = new Schema({
 			type: String,
 			required: true
 		}
-	}]
+	}],
+	role: { type: String }
 });
 
 UserSchema.methods.generateAuthToken = async function () {

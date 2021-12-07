@@ -13,25 +13,26 @@ const ImageUpload = ({ uploadImg }) => {
     setImgFile(imagePreset);
   };
 
-  const postToCloude = async () => {
-    try {
-      if (imgFile !== null) {
-        const response = await axios.post(`https://api.cloudinary.com/v1_1/${token}/image/upload`, imgFile);
-        uploadImg({
-          target: {
-            name: "imageUrl",
-            value: response.data.secure_url,
-          },
-        });
-      }
-    } catch (error) {
-      console.log(error);
-    }
-  };
+
 
   useEffect(() => {
+    const postToCloude = async () => {
+      try {
+        if (imgFile !== null) {
+          const response = await axios.post(`https://api.cloudinary.com/v1_1/${token}/image/upload`, imgFile);
+          uploadImg({
+            target: {
+              name: "imageUrl",
+              value: response.data.secure_url,
+            },
+          });
+        }
+      } catch (error) {
+        console.log(error);
+      }
+    };
     postToCloude();
-  }, [imgFile]);
+  }, [imgFile, token, uploadImg]);
 
   return (
     <div>

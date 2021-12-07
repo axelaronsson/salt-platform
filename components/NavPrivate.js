@@ -10,21 +10,22 @@ const NavPrivate = ({ userToken }) => {
   const src = profile.imgUrl;
   const saltSrc = 'https://i.postimg.cc/cHDKNbRd/4.jpg';
 
-  const fetchProfileData = () => {
-    fetch('http://localhost:3000/api/users/profile', {
-      method: 'GET',
-      headers: {
-        'Authorization': jwtToken
-      }
-    }).then(response => response.json())
-      .then(res => setProfile(res))
-  };
+
 
   useEffect(() => {
+    const fetchProfileData = () => {
+      fetch('http://localhost:3000/api/users/profile', {
+        method: 'GET',
+        headers: {
+          'Authorization': jwtToken
+        }
+      }).then(response => response.json())
+        .then(res => setProfile(res))
+    };
     fetchProfileData();
     return () => {
     }
-  }, [userToken]);
+  }, [userToken, jwtToken]);
 
   const handleLogout = async () => {
     console.log('handleLogout');

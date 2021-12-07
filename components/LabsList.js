@@ -7,7 +7,8 @@ import styles from '../styles/pages.module.css';
 import axios from "axios";
 
 const LabsList = () => {
-  const [status, setStatus] = useState(false);
+  const [role, setRole] = useState('');
+  const [isGranted, setIsGranted] = useState(false);
   const [slides, setSlides] = useState([]);
   const [videos, setVideos] = useState([]);
   const [githubLinks, setGithub] = useState([]);
@@ -22,15 +23,15 @@ const LabsList = () => {
   const [videosToggle, setVideosToggle] = useState(false);
   const router = useRouter();
 
-  const checkAuth = async () => {
-    const res = await fetch('http://localhost:3000/api/github')
-    if (res.ok) {
-      return setStatus(res.ok);
-    } else {
-      setStatus(false);
-      return router.push('/loggedOut');
-    }
-  };
+  // const checkAuth = async () => {
+  //   const res = await fetch('http://localhost:3000/api/github')
+  //   if (res.ok) {
+  //     return setStatus(res.ok);
+  //   } else {
+  //     setStatus(false);
+  //     return router.push('/loggedOut');
+  //   }
+  // };
 
   const fetchVideos = async () => {
     const res = await fetch('http://localhost:3000/api/videos')
@@ -54,12 +55,24 @@ const LabsList = () => {
   };
 
   useEffect(() => {
-    checkAuth();
-    fetchGithub();
-    fetchSlides();
-    fetchVideos();
+    async function fetchData() {
+      const res = await fetch('http://localhost:3000/api/users/authorize')
+      const userAuth = await res.json();
+      if (res.ok) {
+        setRole(userAuth.role);
+        setIsGranted(res.ok)
+        fetchGithub();
+        fetchSlides();
+        fetchVideos();
+      } else {
+        router.push('/loggedOut');
+      }
+    }
+    fetchData();
+    // checkAuth();
+    console.log('useEffect labslist');
     return () => { }
-  }, []);
+  }, [router]);
 
   const handleGithubFormSubmit = async (e) => {
     e.preventDefault();
@@ -102,7 +115,7 @@ const LabsList = () => {
 
   return (
     <div className={styles.container}>
-      {status ? (<>
+      {isGranted ? (<>
         <div className={styles.title}>
           <h1 className={styles.labs__header}> Labs</h1>
           <h1></h1>
@@ -114,9 +127,11 @@ const LabsList = () => {
         </div>
 
         <h3>Github</h3>
-        {!githubToggle && (
-          <button className={styles.button} onClick={() => setGithubToggle(show => !show)}>Add Repo</button>
-        )}
+        { role === 'admin' ? <>
+          {!githubToggle && (
+            <button className={styles.button} onClick={() => setGithubToggle(show => !show)}>Add Repo</button>
+          )}
+        </> : ''}
         {githubToggle && (
           <form onSubmit={handleGithubFormSubmit}>
             <label><strong>Description: </strong></label>
@@ -131,9 +146,11 @@ const LabsList = () => {
         </div>
 
         <h2>Slides</h2>
-        {!slidesToggle && (
-          <button className={styles.button} onClick={() => setSlidesToggle(show => !show)}>Add Slides</button>
-        )}
+        { role === 'admin' ? <>
+          {!slidesToggle && (
+            <button className={styles.button} onClick={() => setSlidesToggle(show => !show)}>Add Slides</button>
+          )}
+        </> : ''}
         {slidesToggle && (
           <form onSubmit={handleSlidesFormSubmit}>
             <label><strong>Description: </strong></label>
@@ -148,9 +165,11 @@ const LabsList = () => {
         </div>
 
         <h2>Videos</h2>
-        {!videosToggle && (
-          <button className={styles.button} onClick={() => setVideosToggle(show => !show)}>Add Video</button>
-        )}
+        { role === 'admin' ? <>
+          {!videosToggle && (
+            <button className={styles.button} onClick={() => setVideosToggle(show => !show)}>Add Video</button>
+          )}
+        </> : ''}
         {videosToggle && (
           <form onSubmit={handleVideosFormSubmit}>
             <label><strong>Description: </strong></label>
