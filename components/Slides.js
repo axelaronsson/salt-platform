@@ -11,7 +11,8 @@ const Slides = ({ slide }) => {
           alt="slides Icon"
           width={500}
           height={500}
-        />{slide.description}</a>
+        />
+        {slide.description}</a>
     </div>
   )
 };
