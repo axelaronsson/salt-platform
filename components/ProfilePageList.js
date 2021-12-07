@@ -9,7 +9,7 @@ const ProfilePageList = ({ userToken }) => {
   const [bio, setBio] = useState('');
   const [password, setPassword] = useState('');
   const [toggle, setToggle] = useState(false);
-  const [status, setStatus] = useState(false);
+  const [isGranted, setIsGranted] = useState(false);
   const [imageUrl, setImageUrl] = useState('');
   const router = useRouter();
   
@@ -18,11 +18,11 @@ const ProfilePageList = ({ userToken }) => {
   const saltSrc = 'https://i.postimg.cc/cHDKNbRd/4.jpg';
   
   const checkAuth = async () => {
-    const res = await fetch('http://localhost:3000/api/github')
+    const res = await fetch('http://localhost:3000/api/users/authorize');
     if (res.ok) {
-      return setStatus(res.ok);
+      setIsGranted(res.ok);
+      fetchProfileData();
     } else {
-      setStatus(false);
      return router.push('/loggedOut');
     }
   };
@@ -57,20 +57,14 @@ const ProfilePageList = ({ userToken }) => {
   };
 
   useEffect(() => {
-    fetchProfileData();
+    checkAuth();
     return () => {
     }
   }, [bio]);
 
-  useEffect(() => {
-    checkAuth();
-    return () => {
-    }
-  }, []);
-
   return (
     <div className={styles.container}>
-      {status ? (<>
+      {isGranted ? (<>
         <div className={styles.title}>
           <h1 className={styles.headar}>Profile Page</h1>
           <h1></h1>
