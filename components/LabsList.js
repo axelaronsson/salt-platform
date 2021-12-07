@@ -90,8 +90,8 @@ const LabsList = () => {
   const handleVideosFormSubmit = async (e) => {
     e.preventDefault();
     const newVideo = {
-      description: slidesDescription,
-      link: slidesLink
+      description: videoDescription,
+      link: videoLink
     };
     await axios.post('http://localhost:3000/api/videos', newVideo);
     fetchVideos();

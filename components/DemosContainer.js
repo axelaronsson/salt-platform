@@ -54,6 +54,9 @@ const DemosContainer = () => {
       <p className={styles.p}>place where you can submit your demos so other colleagues can benfit from it.</p>
       <p></p>
       </div>
+      <div className={styles.icons}>
+        {demosList.map((demo, index) => <Demos key={index} demo={demo} />)}
+      </div>
       {!demoToggle && (
         <button className={styles.button} onClick={() => setDemoToggle(show => !show)}>Add Demo</button>
       )}
@@ -66,9 +69,6 @@ const DemosContainer = () => {
           <button className={styles.button} type='submit'>Add</button>
         </form>
       )}
-      <div className={styles.icons}>
-        {demosList.map((demo, index) => <Demos key={index} demo={demo} />)}
-      </div>
       </>) : ''}
     </div>
   )
