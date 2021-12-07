@@ -22,6 +22,16 @@ const LabsList = () => {
   const [videosToggle, setVideosToggle] = useState(false);
   const router = useRouter();
 
+  const checkAuth = async () => {
+    const res = await fetch('http://localhost:3000/api/github')
+    if (res.ok) {
+      return setStatus(res.ok);
+    } else {
+      setStatus(false);
+      return router.push('/loggedOut');
+    }
+  };
+
   const fetchVideos = async () => {
     const res = await fetch('http://localhost:3000/api/videos')
     const allVideos = await res.json();
@@ -43,19 +53,12 @@ const LabsList = () => {
     return allSlides;
   };
 
-  useEffect(async () => {
-    const res = await fetch('http://localhost:3000/api/github')
-    if (res.ok) {
-      console.log(res);
-      setStatus(res.ok)
-      fetchGithub();
-      fetchSlides();
-      fetchVideos();
-    } else {
-      router.push('/loggedOut');
-    }
-    return () => {
-    }
+  useEffect(() => {
+    checkAuth();
+    fetchGithub();
+    fetchSlides();
+    fetchVideos();
+    return () => { }
   }, []);
 
   const handleGithubFormSubmit = async (e) => {

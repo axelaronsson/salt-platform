@@ -2,8 +2,9 @@ import styles from '../styles/profile.module.css';
 import React, { useState, useEffect } from 'react';
 import ImageUpload from './ImageUpload';
 import { useRouter } from 'next/router';
+import Image from 'next/image';
 
-const ProfilePageList = ({userToken}) => {
+const ProfilePageList = ({ userToken }) => {
   const [profile, setProfile] = useState([]);
   const [bio, setBio] = useState('');
   const [password, setPassword] = useState('');
@@ -11,8 +12,20 @@ const ProfilePageList = ({userToken}) => {
   const [status, setStatus] = useState(false);
   const [imageUrl, setImageUrl] = useState('');
   const router = useRouter();
-
+  
   const jwtToken = `Bearer ${userToken}`;
+  const src = profile.imgUrl;
+  const saltSrc = 'https://i.postimg.cc/cHDKNbRd/4.jpg';
+  
+  const checkAuth = async () => {
+    const res = await fetch('http://localhost:3000/api/github')
+    if (res.ok) {
+      return setStatus(res.ok);
+    } else {
+      setStatus(false);
+     return router.push('/loggedOut');
+    }
+  };
 
   const fetchProfileData = () => {
     fetch('http://localhost:3000/api/users/profile', {
@@ -49,28 +62,30 @@ const ProfilePageList = ({userToken}) => {
     }
   }, [bio]);
 
-  useEffect(async () => {
-    const res = await fetch('http://localhost:3000/api/github')
-    if (res.ok) {
-      setStatus(res.ok);
-    } else {
-      setStatus(false);
-      router.push('/loggedOut');
-    }
+  useEffect(() => {
+    checkAuth();
     return () => {
     }
   }, []);
 
   return (
-       <div className={styles.container}>
+    <div className={styles.container}>
       {status ? (<>
         <div className={styles.title}>
           <h1 className={styles.headar}>Profile Page</h1>
           <h1></h1>
         </div>
         <div className={styles.header}>
-          <div>
-            <img src={profile.imgUrl} className={styles.img} />
+          <div className={styles.img}>
+            <Image
+            title="profile"
+            loader={() => src}
+            src={src ? src : saltSrc}
+            unoptimized={true}
+            alt="profile Icon"
+            width={500}
+            height={500} 
+            />
           </div>
           <div>
             <h2 className={styles.name}>{profile.name}</h2>

@@ -7,15 +7,18 @@ const LandingPageList = () => {
   const [status, setStatus] = useState(false);
   const router = useRouter();
 
-  useEffect(async () => {
+  const checkAuth = async () => {
     const res = await fetch('http://localhost:3000/api/github')
     if (res.ok) {
-      console.log(res);
-      setStatus(res.ok);
+      return setStatus(res.ok);
     } else {
-      setStatus(false)
-      router.push('/loggedOut');
+      setStatus(false);
+     return router.push('/loggedOut');
     }
+  };
+
+  useEffect(() => {
+    checkAuth();
     return () => {
     }
   }, []);

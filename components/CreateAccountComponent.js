@@ -2,6 +2,7 @@ import { useState } from 'react';
 import styles from '../styles/createAccount.module.css'
 import axios from 'axios';
 import NavPrivate from './NavPrivate';
+import Image from 'next/image';
 
 const CreateAccountComponent = () => {
   const [name, setName] = useState('');
@@ -21,12 +22,12 @@ const CreateAccountComponent = () => {
     }
 
     axios.post('/api/users', newAccount)
-    .then(function (response) {
-      console.log(response);
-    })
-    .catch(function (error) {
-      console.log(error);
-    });
+      .then(function (response) {
+        console.log(response);
+      })
+      .catch(function (error) {
+        console.log(error);
+      });
     setName('');
     setEmail('');
     setPassword('');
@@ -35,9 +36,14 @@ const CreateAccountComponent = () => {
   }
   return (
     <div className={styles.container}>
-     <NavPrivate />
+      <NavPrivate />
       <div className={styles.imgdiv}>
-        <img src='https://i.postimg.cc/QxWPMByG/signup-image.jpg' />
+        <Image
+          src="/assets/signup-image.jpg"
+          alt="signup image"
+          width={280}
+          height={350}
+        />
       </div>
 
       <div className={styles.formdiv}>
