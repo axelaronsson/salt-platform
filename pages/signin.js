@@ -3,11 +3,13 @@ import NavHome from '../components/NavHome'
 import styles from '../styles/signin.module.css';
 import axios from 'axios';
 import { useRouter } from 'next/router';
+import Image from 'next/image';
 
 const signin = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const router = useRouter();
+  const src = 'https://i.postimg.cc/6qTb47bJ/signin-image.jpg';
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -28,7 +30,14 @@ const signin = () => {
       <NavHome />
     <div className={styles.container}>
       <div className={styles.imgdiv}>
-        <img src='https://i.postimg.cc/6qTb47bJ/signin-image.jpg' />
+        <Image
+        loader={() => src}
+            src={src}
+            unoptimized={true}
+            alt="sign-in image"
+            width={280}
+            height={350}
+        />
       </div>
       <div className={styles.formdiv}>
         <h1>&lt;/Salt&gt;</h1>

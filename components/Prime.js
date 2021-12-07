@@ -35,7 +35,7 @@ const Prime = () => {
                 : null
             }
             </div>
-            <p className={primeStyles.wiki}><a href="https://en.wikipedia.org/wiki/Prime_number" target="_blank">Learn more</a> about Prime Kata</p>
+            <p className={primeStyles.wiki}><a href="https://en.wikipedia.org/wiki/Prime_number" target="_blank" rel="noreferrer">Learn more</a> about Prime Kata</p>
         </div>
     )
 }

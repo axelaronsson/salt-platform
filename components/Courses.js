@@ -1,11 +1,21 @@
 import styles from '../styles/icon.module.css';
+import Image from 'next/image';
 
-const Courses = ({course}) => {
-    return (
-        <div>
-            <a target='_blank' href={course.link}><img className ={styles.icon} src='https://i.postimg.cc/sgLX09nG/co.png'></img>{course.description}</a>            
-        </div>
-    )
+const Courses = ({ course }) => {
+
+  return (
+    <div className={styles.icon}>
+      <a target='_blank' rel="noreferrer" href={course.link}>
+        <Image
+          src="/assets/co.jpg"
+          alt="courses Icon"
+          width={500}
+          height={500}
+        />
+        {course.description}
+      </a>
+    </div>
+  )
 };
 
 export default Courses;

@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import router from 'next/router';
 import Courses from "../components/Courses";
 import NavPrivate from "../components/NavPrivate";
