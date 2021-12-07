@@ -30,10 +30,10 @@ const FizzBuzz = () => {
     <div className={fizzBuzzStyles.container}>
       <h2>FizzBuzz</h2>
       <h3>What is FizzBuzz?</h3>
-      <p>It&apos;s a simple number game in which you count, but replace certain numbers with the words “Fizz”
-        and/or “Buzz”, adhering to certain rules. Instead of numbers divisible by 3, you
-        get “Fizz”, instead of numbers divisible by 5, you get “Buzz” and if it is divisible with 3 and 5, you
-        get "FizzBuzz". Type a number and find out what it is.</p>
+      <p>It&apos;s a simple number game in which you count, but replace certain numbers with the words &quot;Fizz&quot;
+        and/or &quot;Buzz&quot;, adhering to certain rules. Instead of numbers divisible by 3, you
+        get &quot;Fizz&quot;, instead of numbers divisible by 5, you get &quot;Buzz&quot; and if it is divisible with 3 and 5, you
+        get &quot;FizzBuzz&quot;. Type a number and find out what it is.</p>
       <div className={fizzBuzzStyles.form}>
         <input type="text" placeholder="Enter a number" onChange={handleChange}></input>
         <button onClick={() => setShow(true)}>Find out</button>
@@ -43,7 +43,7 @@ const FizzBuzz = () => {
             : null
         }
       </div>
-      <p className={fizzBuzzStyles.wiki}><a href="https://en.wikipedia.org/wiki/Fizz_buzz" target="_blank">Learn more</a> about FizzBuzz Kata</p>
+      <p className={fizzBuzzStyles.wiki}><a href="https://en.wikipedia.org/wiki/Fizz_buzz" rel="noreferrer" target="_blank">Learn more</a> about FizzBuzz Kata</p>
     </div>
   )
 }
