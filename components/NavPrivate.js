@@ -7,13 +7,8 @@ import Image from 'next/image';
 const NavPrivate = ({ userToken }) => {
   const jwtToken = `Bearer ${userToken}`;
   const [profile, setProfile] = useState([]);
-  const profileSrc = profile.imgUrl;
+  const src = profile.imgUrl;
   const saltSrc = 'https://i.postimg.cc/cHDKNbRd/4.jpg';
-  const calendarSrc = 'https://i.postimg.cc/MHMGJKZY/2.png';
-  const slackSrc = 'https://i.postimg.cc/ZqbKKLKn/1.png';
-  const accSrc = 'https://i.postimg.cc/qMwDrcfG/222.png';
-  const saltiesSrc = 'https://i.postimg.cc/vHjdYwp3/vb.png';
-  const logoutSrc = 'https://i.postimg.cc/1z4Hsp9L/23.jpg';
 
   const fetchProfileData = () => {
     fetch('http://localhost:3000/api/users/profile', {
@@ -44,8 +39,8 @@ const NavPrivate = ({ userToken }) => {
         <div className={navStyles.img__top}>
           <Image
             title="profile"
-            loader={() => profileSrc}
-            src={profileSrc}
+            loader={() => src}
+            src={src ? src : saltSrc}
             unoptimized={true}
             alt="profile Icon"
             width={500}
@@ -57,9 +52,7 @@ const NavPrivate = ({ userToken }) => {
         <div className={navStyles.img}>
           <Image
             title="Landing-page"
-            loader={() => saltSrc}
-            src={saltSrc}
-            unoptimized={true}
+            src="/assets/4.jpg"
             alt="salt Icon"
             width={500}
             height={500}
@@ -70,9 +63,7 @@ const NavPrivate = ({ userToken }) => {
         <div className={navStyles.img}>
           <Image
             title="calendar"
-            loader={() => calendarSrc}
-            src={calendarSrc}
-            unoptimized={true}
+            src="/assets/s.png"
             alt="calendar Icon"
             width={500}
             height={500}
@@ -83,9 +74,7 @@ const NavPrivate = ({ userToken }) => {
         <div className={navStyles.img}>
           <Image
             title="slack"
-            loader={() => slackSrc}
-            src={slackSrc}
-            unoptimized={true}
+            src="/assets/1.png"
             alt="slack Icon"
             width={500}
             height={500}
@@ -96,9 +85,7 @@ const NavPrivate = ({ userToken }) => {
         <div className={navStyles.img}>
           <Image
             title="Create-Account"
-            loader={() => accSrc}
-            src={accSrc}
-            unoptimized={true}
+            src="/assets/222.png"
             alt="account Icon"
             width={500}
             height={500}
@@ -109,9 +96,7 @@ const NavPrivate = ({ userToken }) => {
         <div className={navStyles.img}>
           <Image
             title="salties"
-            loader={() => saltiesSrc}
-            src={saltiesSrc}
-            unoptimized={true}
+            src="/assets/vb.png"
             alt="salties Icon"
             width={500}
             height={500}
@@ -122,9 +107,7 @@ const NavPrivate = ({ userToken }) => {
         <div onClick={handleLogout} className={navStyles.img}>
           <Image
             title="Log-out"
-            loader={() => logoutSrc}
-            src={logoutSrc}
-            unoptimized={true}
+            src="/assets/23.png"
             alt="log-out Icon"
             width={500}
             height={500}
