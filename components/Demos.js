@@ -5,7 +5,7 @@ const Demos = ({ demo }) => {
 
   return (
     <div className={styles.icon}>
-      <a target='_blank' rel="noreferrer" href={demo.link} />
+      <a target='_blank' rel="noreferrer" href={demo.link}>
       <div className={styles.img}>
         <Image
           src="/assets/7.jpg"
@@ -15,6 +15,7 @@ const Demos = ({ demo }) => {
         />
       </div>
       <p className={styles.description}>{demo.description}</p>
+      </a>
     </div>
   )
 };
