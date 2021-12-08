@@ -8,7 +8,7 @@ const Courses = ({ course }) => {
       <a target='_blank' rel="noreferrer" href={course.link}>
         <div className={styles.img}>
           <Image
-            src="/assets/co.jpg"
+            src="/assets/courses.png"
             alt="courses Icon"
             width={500}
             height={500}

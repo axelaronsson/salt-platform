@@ -8,7 +8,7 @@ const Demos = ({ demo }) => {
       <a target='_blank' rel="noreferrer" href={demo.link}>
       <div className={styles.img}>
         <Image
-          src="/assets/7.jpg"
+          src="/assets/demos.png"
           alt="demos Icon"
           width={500}
           height={500}

@@ -5,7 +5,7 @@
   display: flex;
   justify-content:space-evenly;
 }
-.headar{
+.header{
   height: 80px;
     max-width: 320px;
     margin-bottom: 8px;
@@ -27,8 +27,9 @@
   width: 400px;
   margin-left: 50px;
 }
-.header{
+.main{
   margin-top: 100px;
+  margin-left: 15px;
   display: flex;
   justify-content: center;
 }
@@ -65,4 +66,7 @@ color:white;
 .file:hover{
  background-color: black;
  color: blanchedalmond;
+}
+.imgradius{
+  border-radius: 15px;
 }

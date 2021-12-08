@@ -66,11 +66,11 @@ const ProfilePageList = ({ userToken }) => {
     <div className={styles.container}>
       {isGranted ? (<>
         <div className={styles.title}>
-          <h1 className={styles.headar}>Profile Page</h1>
+          <h1 className={styles.header}>Profile Page</h1>
           <h1></h1>
         </div>
-        <div className={styles.header}>
-          <div  style={{borderRadius: '5px',width: '190px',height: '180px'}}>
+        <div className={styles.main}>
+          <div style={{width: '190px',height: '180px'}}>
             <Image
             title="profile"
             loader={() => src}
@@ -78,9 +78,10 @@ const ProfilePageList = ({ userToken }) => {
             unoptimized={true}
             alt="profile Icon"
             width={500}
-            height={500} 
+            height={500}
+            className={styles.imgradius}
             />
-          </div>
+            </div>
           <div>
             <h2 className={styles.name}>{profile.name}</h2>
             <p className={styles.bio}>{profile.bio}</p>
