@@ -5,7 +5,7 @@ const Github = ({ github }) => {
 
   return (
     <div className={styles.icon}>
-      <a target='_blank' rel="noreferrer" href={github.link} />
+      <a target='_blank' rel="noreferrer" href={github.link}>
       <div className={styles.img}>
         <Image
           src="/assets/45.png"
@@ -15,6 +15,7 @@ const Github = ({ github }) => {
         />
         </div>
         <p className={styles.description}>{github.description}</p>
+        </a>
     </div>
   )
 };

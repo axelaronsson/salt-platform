@@ -4,7 +4,7 @@ import Image from 'next/image';
 const Videos = ({ video }) => {
   return (
     <div className={styles.icon}>
-      <a target='_blank' rel="noreferrer" href={video.link} />
+      <a target='_blank' rel="noreferrer" href={video.link}>
       <div className={styles.img}>
         <Image
           src="/assets/2.png"
@@ -14,6 +14,7 @@ const Videos = ({ video }) => {
         />
         </div>
         <p className={styles.description}>{video.description}</p>
+        </a>
     </div>
   )
 };
