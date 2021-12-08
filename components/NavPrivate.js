@@ -38,11 +38,12 @@ const NavPrivate = ({ userToken }) => {
       <Link href="/profilePage" passHref>
         <div className={navStyles.img__top}>
           <Image
-            title="profile"
+            className={navStyles.logo}
+            title="Profile"
             loader={() => src}
             src={src ? src : saltSrc}
             unoptimized={true}
-            alt="profile Icon"
+            alt="Profile Icon"
             width={500}
             height={500}
           />
@@ -51,9 +52,10 @@ const NavPrivate = ({ userToken }) => {
       <Link href="/landingPage" passHref>
         <div className={navStyles.img}>
           <Image
+            className={navStyles.logo}
             title="Landing-page"
             src="/assets/4.jpg"
-            alt="salt Icon"
+            alt="Salt Icon"
             width={500}
             height={500}
           />
@@ -62,9 +64,10 @@ const NavPrivate = ({ userToken }) => {
       <a title="Calender" target='_blank' rel="noreferrer" href="https://calendar.google.com/calendar/u/0/r">
         <div className={navStyles.img}>
           <Image
-            title="calendar"
-            src="/assets/s.png"
-            alt="calendar Icon"
+            className={navStyles.logo}
+            title="Calendar"
+            src="/assets/google.png"
+            alt="Calendar Icon"
             width={500}
             height={500}
           />
@@ -73,9 +76,10 @@ const NavPrivate = ({ userToken }) => {
       <a title="Slack" target='_blank' rel="noreferrer" href="https://join.slack.com/t/salt-sthlm/shared_invite/zt-z7tyhdaa-fMJXwQPiNB97vKgLYXFzxg">
         <div className={navStyles.img}>
           <Image
-            title="slack"
-            src="/assets/1.png"
-            alt="slack Icon"
+            className={navStyles.logo}
+            title="Slack"
+            src="/assets/slack.png"
+            alt="Slack Icon"
             width={500}
             height={500}
           />
@@ -84,9 +88,10 @@ const NavPrivate = ({ userToken }) => {
       <Link href="/createAccount" passHref>
         <div className={navStyles.img}>
           <Image
+            className={navStyles.logo}
             title="Create-Account"
-            src="/assets/222.png"
-            alt="account Icon"
+            src="/assets/addprofile.png"
+            alt="Account Icon"
             width={500}
             height={500}
           />
@@ -95,9 +100,10 @@ const NavPrivate = ({ userToken }) => {
       <Link href="/salties" passHref>
         <div className={navStyles.img}>
           <Image
-            title="salties"
-            src="/assets/vb.png"
-            alt="salties Icon"
+            className={navStyles.logo}
+            title="Salties"
+            src="/assets/group.png"
+            alt="Salties Icon"
             width={500}
             height={500}
           />
@@ -106,9 +112,10 @@ const NavPrivate = ({ userToken }) => {
       <Link href="/" passHref>
         <div onClick={handleLogout} className={navStyles.img}>
           <Image
+            className={navStyles.logo}
             title="Log-out"
-            src="/assets/23.png"
-            alt="log-out Icon"
+            src="/assets/logout.png"
+            alt="Log-out Icon"
             width={500}
             height={500}
           />
