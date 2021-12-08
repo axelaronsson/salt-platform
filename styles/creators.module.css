@@ -21,4 +21,11 @@
 }
 .creator{
     padding: 10px 30px;
+    transition: transform .3s;
+}
+.creator:hover{
+    transform: scale(1.4);
+}
+.name{
+    display: block;
 }

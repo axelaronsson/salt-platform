@@ -17,6 +17,12 @@
     border: 5px solid #99A799;
     border-radius: 10px;
 }
+.form button:hover{
+    background-color: black;   
+    color: #99A799;
+    cursor: pointer;
+    border: none;
+}
 .form input{
     height: 40px;
     width: 150px;

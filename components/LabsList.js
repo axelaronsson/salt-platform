@@ -113,7 +113,10 @@ const LabsList = () => {
           <p></p>
         </div>
 
-        <h3>Github</h3>
+        <h2>Github</h2>
+        <div className={styles.icons}>
+          {githubLinks.map((github, index) => <Github key={index} github={github} />)}
+        </div>
         {!githubToggle && (
           <button className={styles.button} onClick={() => setGithubToggle(show => !show)}>Add Repo</button>
         )}
@@ -126,11 +129,11 @@ const LabsList = () => {
             <button className={styles.button} type='submit'>Add</button>
           </form>
         )}
-        <div className={styles.icons}>
-          {githubLinks.map((github, index) => <Github key={index} github={github} />)}
-        </div>
 
         <h2>Slides</h2>
+        <div className={styles.icons}>
+          {slides.map((slide, index) => <Slides key={index} slide={slide} />)}
+        </div>
         {!slidesToggle && (
           <button className={styles.button} onClick={() => setSlidesToggle(show => !show)}>Add Slides</button>
         )}
@@ -143,11 +146,11 @@ const LabsList = () => {
             <button className={styles.button} type='submit'>Add</button>
           </form>
         )}
-        <div className={styles.icons}>
-          {slides.map((slide, index) => <Slides key={index} slide={slide} />)}
-        </div>
 
         <h2>Videos</h2>
+        <div className={styles.icons}>
+          {videos.map((video, index) => <Videos key={index} video={video} />)}
+        </div>
         {!videosToggle && (
           <button className={styles.button} onClick={() => setVideosToggle(show => !show)}>Add Video</button>
         )}
@@ -160,9 +163,6 @@ const LabsList = () => {
             <button className={styles.button} type='submit'>Add</button>
           </form>
         )}
-        <div className={styles.icons}>
-          {videos.map((video, index) => <Videos key={index} video={video} />)}
-        </div>
       </>) : ''}
     </div>
   )
