@@ -40,7 +40,7 @@
 .description{
   display: flex;
   justify-content:space-evenly;
-  margin-left: 160px;
+  margin-left: 168px;
 }
 
 .p{
@@ -59,7 +59,7 @@
 }
 
 .button{
-  margin: 30px;
+  margin: 60px 30px 20px 30px;
   border: 1px solid black;
   border-radius: 5px;
   background-color: transparent;
@@ -71,6 +71,7 @@
   border-radius: 5px;
   background-color: black;
   color: white;
+  cursor: pointer;
 }
 
 .formdiv{

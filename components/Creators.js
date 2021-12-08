@@ -2,7 +2,7 @@ import creatorsStyles from '../styles/creators.module.css';
 import Image from 'next/image';
 
 const Creators = () => {
-  
+
   return (
     <div className={creatorsStyles.container}>
       <h3>Creators</h3>
@@ -11,36 +11,40 @@ const Creators = () => {
       </p>
       <div className={creatorsStyles.photos}>
         <div className={creatorsStyles.creator}>
-          <Image
-            src="/assets/Yazan.png"
-            alt="Yazan Icon"
-            width={150}
-            height={150}
-          />
+          <a target='_blank' rel="noreferrer" href="https://github.com/Ras-AlGhoul">
+            <Image
+              src="/assets/Yazan.png"
+              alt="Yazan Icon"
+              width={150}
+              height={150}
+            />
+            <span className={creatorsStyles.name}>Yazan</span>
+          </a>
           <div>
-            <a href="https://github.com/Ras-AlGhoul">Yazan</a>
           </div>
         </div>
         <div className={creatorsStyles.creator}>
-          <Image
-            src="/assets/Angie.png"
-            alt="Angie Icon"
-            width={150}
-            height={150}
-          />
+          <a target='_blank' rel="noreferrer" href="https://github.com/AndelijaKaluderovic">
+            <Image
+              src="/assets/Angie.png"
+              alt="Angie Icon"
+              width={150}
+              height={150}
+            />
+            <span className={creatorsStyles.name}>Angie</span></a>
           <div>
-            <a href="https://github.com/AndelijaKaluderovic">Angie</a>
           </div>
         </div>
         <div className={creatorsStyles.creator}>
-          <Image
-            src="/assets/Axel.png"
-            alt="axel Icon"
-            width={150}
-            height={150}
-          />
+          <a target='_blank' rel="noreferrer" href="https://github.com/axelaronsson">
+            <Image
+              src="/assets/Axel.png"
+              alt="axel Icon"
+              width={150}
+              height={150}
+            />
+            <span className={creatorsStyles.name}>Axel</span></a>
           <div>
-            <a href="https://github.com/axelaronsson">Axel</a>
           </div>
         </div>
       </div>

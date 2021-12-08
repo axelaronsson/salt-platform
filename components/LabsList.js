@@ -115,12 +115,13 @@ const LabsList = () => {
           <p></p>
         </div>
 
-        <h3>Github</h3>
-        { role === 'admin' ? <>
-          {!githubToggle && (
-            <button className={styles.button} onClick={() => setGithubToggle(show => !show)}>Add Repo</button>
-          )}
-        </> : ''}
+        <h2>Github</h2>
+        <div className={styles.icons}>
+          {githubLinks.map((github, index) => <Github key={index} github={github} />)}
+        </div>
+        {!githubToggle && (
+          <button className={styles.button} onClick={() => setGithubToggle(show => !show)}>Add Repo</button>
+        )}
         {githubToggle && (
           <form onSubmit={handleGithubFormSubmit}>
             <label><strong>Description: </strong></label>
@@ -130,16 +131,14 @@ const LabsList = () => {
             <button className={styles.button} type='submit'>Add</button>
           </form>
         )}
-        <div className={styles.icons}>
-          {githubLinks.map((github, index) => <Github key={index} github={github} />)}
-        </div>
 
         <h2>Slides</h2>
-        { role === 'admin' ? <>
-          {!slidesToggle && (
-            <button className={styles.button} onClick={() => setSlidesToggle(show => !show)}>Add Slides</button>
-          )}
-        </> : ''}
+        <div className={styles.icons}>
+          {slides.map((slide, index) => <Slides key={index} slide={slide} />)}
+        </div>
+        {!slidesToggle && (
+          <button className={styles.button} onClick={() => setSlidesToggle(show => !show)}>Add Slides</button>
+        )}
         {slidesToggle && (
           <form onSubmit={handleSlidesFormSubmit}>
             <label><strong>Description: </strong></label>
@@ -149,16 +148,14 @@ const LabsList = () => {
             <button className={styles.button} type='submit'>Add</button>
           </form>
         )}
-        <div className={styles.icons}>
-          {slides.map((slide, index) => <Slides key={index} slide={slide} />)}
-        </div>
 
         <h2>Videos</h2>
-        { role === 'admin' ? <>
-          {!videosToggle && (
-            <button className={styles.button} onClick={() => setVideosToggle(show => !show)}>Add Video</button>
-          )}
-        </> : ''}
+        <div className={styles.icons}>
+          {videos.map((video, index) => <Videos key={index} video={video} />)}
+        </div>
+        {!videosToggle && (
+          <button className={styles.button} onClick={() => setVideosToggle(show => !show)}>Add Video</button>
+        )}
         {videosToggle && (
           <form onSubmit={handleVideosFormSubmit}>
             <label><strong>Description: </strong></label>
@@ -168,9 +165,6 @@ const LabsList = () => {
             <button className={styles.button} type='submit'>Add</button>
           </form>
         )}
-        <div className={styles.icons}>
-          {videos.map((video, index) => <Videos key={index} video={video} />)}
-        </div>
       </>) : ''}
     </div>
   )
