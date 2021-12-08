@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import NavHome from './NavHome'
 import styles from '../styles/signin.module.css';
 import axios from 'axios';
@@ -6,6 +6,7 @@ import { useRouter } from 'next/router';
 import Image from 'next/image';
 
 const SigninComponent = () => {
+  const [errMsg, setErrMsg] = useState(false);
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const router = useRouter();
@@ -21,10 +22,20 @@ const SigninComponent = () => {
     .then(function (response) {
       console.log('signin',response);
     })
-    .then(() => router.push('/landingPage'));
-    setEmail('');
-    setPassword('');
+    .then(() => router.push('/landingPage'))
+    .catch(() => {
+      setErrMsg(true);
+      console.error('Bad request');
+    });
   }
+
+  useEffect(() => {
+    return () => {
+      setEmail('');
+      setPassword('');
+    };
+  }, []);
+
   return (
     <>
       <NavHome />
@@ -39,7 +50,7 @@ const SigninComponent = () => {
             height={350}
         />
       </div>
-      <div className={styles.formdiv}>
+      <div className={styles.formdiv} style={{position: 'relative'}}>
         <h1>&lt;/Salt&gt;</h1>
         <form onSubmit={handleSubmit}>
           <label><strong>Email</strong></label><br />
@@ -49,7 +60,10 @@ const SigninComponent = () => {
           <input type='password' value={password} onChange={({ target: { value } }) => setPassword(value)} className={styles.input} />
           <hr />
           <button className={styles.button} type='submit'>Log In</button>
-        </form>
+          </form>
+        { errMsg ? <>
+        <h4 style={{color: 'red', position: 'absolute', left: '0px', width: '350px'}}>Cannot verify account. Please check that you supplied correct email and password.</h4>
+        </> : ''}
       </div>
     </div>
     </>
