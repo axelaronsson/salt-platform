@@ -14,7 +14,7 @@ const Courses = ({ course }) => {
               height={500}
             />
         </div>
-        <span className={styles.description}>{course.description}</span>
+        <p className={styles.description}>{course.description}</p>
     </div>
   )
 };
