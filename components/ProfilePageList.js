@@ -76,7 +76,7 @@ const ProfilePageList = ({ userToken }) => {
           <h1></h1>
         </div>
         <div className={styles.header}>
-          <div className={styles.img}>
+          <div  style={{borderRadius: '5px',width: '190px',height: '180px'}}>
             <Image
             title="profile"
             loader={() => src}

@@ -52,11 +52,7 @@ align-items: center;
 background-color: black;
 color:white;
 }
-.img{
-  width: 190px;
-  height: 180px;
-  border-radius: 30px;
-}
+
 .file{
  border: 1px solid black;
  display: flex;
