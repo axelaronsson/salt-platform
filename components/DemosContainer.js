@@ -6,7 +6,8 @@ import styles from '../styles/pages.module.css';
 import axios from "axios";
 
 const DemosContainer = () => {
-  const [status, setStatus] = useState(false);
+  const [role, setRole] = useState('');
+  const [isGranted, setIsGranted] = useState(false);
   const [demosList, setDemosList] = useState([]);
   const [demoLink, setDemoLink] = useState('');
   const [demoDescription, setDemoDescription] = useState('');
@@ -15,16 +16,24 @@ const DemosContainer = () => {
   const fetchDemos = async () => {
     const res = await fetch('http://localhost:3000/api/demos')
     const allDemos = await res.json();
-    await setDemosList(allDemos);
-    setStatus(res.ok);
-    if (!res.ok) {
-      router.push('/loggedOut')
-    }
+    setDemosList(allDemos);
     return allDemos;
   };
 
+  const checkAuth = async () => {
+    const res = await fetch('http://localhost:3000/api/users/authorize');
+    const userAuth = await res.json();
+    if (res.ok) {
+      setRole(userAuth.role);
+      setIsGranted(res.ok);
+      fetchDemos();
+    } else {
+      router.push('/loggedOut')
+    }
+  }
+
   useEffect(() => {
-    fetchDemos()
+    checkAuth();
     return () => {
     }
   }, []);
@@ -44,7 +53,7 @@ const DemosContainer = () => {
 
   return (
     <div className={styles.container}>
-      { status ? (<>
+      { isGranted ? (<>
       <NavPrivate />
       <div className={styles.title}>
       <h1 className={styles.demos__header}>Demos</h1>
@@ -57,9 +66,11 @@ const DemosContainer = () => {
       <div className={styles.icons}>
         {demosList.map((demo, index) => <Demos key={index} demo={demo} />)}
       </div>
+      { role === 'admin' ? <>
       {!demoToggle && (
         <button className={styles.button} onClick={() => setDemoToggle(show => !show)}>Add Demo</button>
       )}
+      </> : ''}
       {demoToggle && (
         <form onSubmit={handleDemoFormSubmit}>
         <label><strong>Description: </strong></label>

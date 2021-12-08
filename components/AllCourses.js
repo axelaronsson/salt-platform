@@ -6,7 +6,8 @@ import styles from '../styles/pages.module.css';
 import axios from "axios";
 
 const AllCourses = () => {
-  const [status, setStatus] = useState(false);
+  const [role, setRole] = useState('');
+  const [isGranted, setIsGranted] = useState(false);
   const [coursesList, setCoursesList] = useState([]);
   const [courseLink, setCourseLink] = useState('');
   const [courseDescription, setCourseDescription] = useState('');
@@ -15,16 +16,24 @@ const AllCourses = () => {
   const fetchCourses = async () => {
     const res = await fetch('http://localhost:3000/api/courses')
     const allCourses = await res.json();
-    await setCoursesList(allCourses);
-    setStatus(res.ok);
-    if (!res.ok) {
-      router.push('/loggedOut')
-    }
+    setCoursesList(allCourses);
     return allCourses;
   };
 
+  const checkAuth = async () => {
+    const res = await fetch('http://localhost:3000/api/users/authorize');
+    const userAuth = await res.json();
+    if (res.ok) {
+      setRole(userAuth.role);
+      setIsGranted(res.ok);
+      fetchCourses();
+    } else {
+      router.push('/loggedOut')
+    }
+  }
+
   useEffect(() => {
-    fetchCourses()
+    checkAuth();
     return () => {
     }
   }, []);
@@ -44,7 +53,7 @@ const AllCourses = () => {
 
   return (
     <div className={styles.container}>
-      { status ? (<>
+      { isGranted ? (<>
       <NavPrivate />
       <div className={styles.title}>
       <h1 className={styles.courses__header}>Courses</h1>
@@ -57,9 +66,11 @@ const AllCourses = () => {
       <div className={styles.icons}>
         {coursesList.map((course, index) => <Courses key={index} course={course} />)}
       </div>
-      {!courseToggle && (
-        <button className={styles.button} onClick={() => setCourseToggle(show => !show)}>Add Course</button>
-      )}
+      { role === 'admin' ? <>
+        {!courseToggle && (
+          <button className={styles.button} onClick={() => setCourseToggle(show => !show)}>Add Course</button>
+        )}
+      </> : ''}
       {courseToggle && (
         <form onSubmit={handleCourseFormSubmit}>
           <label><strong>Description: </strong></label>

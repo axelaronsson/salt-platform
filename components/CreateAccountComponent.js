@@ -1,10 +1,12 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import styles from '../styles/createAccount.module.css'
 import axios from 'axios';
 import NavPrivate from './NavPrivate';
 import Image from 'next/image';
+import router from 'next/router';
 
 const CreateAccountComponent = () => {
+  const [isGranted, setIsGranted] = useState('');
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
@@ -34,8 +36,24 @@ const CreateAccountComponent = () => {
     setMobile('');
     setAdmission('');
   }
+
+  const checkAuth = async () => {
+    const res = await fetch('http://localhost:3000/api/users/authorize');
+    const userAuth = await res.json();
+    if (userAuth.role === 'admin') {
+      setIsGranted(res.ok);
+    }
+  }
+
+  useEffect(() => {
+    checkAuth();
+    return () => {
+    }
+  }, []);
+
   return (
     <div className={styles.container}>
+      { isGranted ? <>
       <NavPrivate />
       <div className={styles.imgdiv}>
         <Image
@@ -67,7 +85,7 @@ const CreateAccountComponent = () => {
           <button className={styles.button} type='submit'>Create Account</button>
         </form>
       </div>
-
+      </> : 'You need admin access to view this page.'}
     </div>
   )
 };
