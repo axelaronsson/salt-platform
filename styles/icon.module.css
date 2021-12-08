@@ -3,3 +3,12 @@
   height: 60px;
   margin: 30px 40px;
 }
+.description{
+  width: 220px;
+  text-align: center;
+  margin: 0;
+}
+.img{
+position: relative;
+left: 80px;
+}

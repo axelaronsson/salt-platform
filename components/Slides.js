@@ -5,14 +5,16 @@ const Slides = ({ slide }) => {
 
   return (
     <div className={styles.icon}>
-      <a target='_blank' rel="noreferrer" href={slide.link}>
+      <a target='_blank' rel="noreferrer" href={slide.link} />
+      <div className={styles.img}>
         <Image
           src="/assets/4.png"
           alt="slides Icon"
           width={500}
           height={500}
         />
-        {slide.description}</a>
+        </div>
+        <p className={styles.description}>{slide.description}</p>
     </div>
   )
 };
