@@ -7,8 +7,7 @@ const Creators = () => {
     <div className={creatorsStyles.container}>
       <h3>Creators</h3>
       <p>
-        We are the team of three freshly graduated Salt students who recognized the high program value and decided to contribute. The Salt programe is unique and requires from each student efforts made toward on-site material use, online research and neat and tidy file management (labs, demos, slides, etc). We have decided to help optimize the experience for present and future students and Salt instructors by centralizing useful and key links and making it easily accessible.
-      </p>
+      We are a team of three freshly graduated Salt students who have recognized high program value and decided to contribute. The Salt program is unique and requires from each student efforts made toward on-site material use, online research, and neat and tidy file management (labs, demos, slides, etc). We have decided to help optimize the experience for present and future students and Salt instructors by centralizing useful and key links and making them easily accessible.</p>
       <div className={creatorsStyles.photos}>
         <div className={creatorsStyles.creator}>
           <a target='_blank' rel="noreferrer" href="https://github.com/Ras-AlGhoul">

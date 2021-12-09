@@ -110,11 +110,11 @@ const NavPrivate = ({ userToken }) => {
         </div>
       </Link>
       <Link href="/" passHref>
-        <div onClick={handleLogout} className={navStyles.img}>
+        <div onClick={handleLogout} className={navStyles.img} className={navStyles.logout}>
           <Image
             className={navStyles.logo}
             title="Log-out"
-            src="/assets/logout.png"
+            src="/assets/log.png"
             alt="Log-out Icon"
             width={500}
             height={500}

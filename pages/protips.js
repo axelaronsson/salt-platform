@@ -8,7 +8,7 @@ const protips = () => {
             <div className={protypsStyles.container}>
                 <div className={protypsStyles.header}>
                     <h2>Protips</h2>
-                    <p>Here are some useful topics you should be comfortable with before The Salt Programe starts</p>
+                    <p>Here are some useful topics you should be comfortable with before The Salt Program starts</p>
                 </div>
                 <div className={protypsStyles.categories}>
                     <div className={protypsStyles.programmer}>

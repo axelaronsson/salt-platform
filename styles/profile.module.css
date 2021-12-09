@@ -4,6 +4,7 @@
 .title{
   display: flex;
   justify-content:space-evenly;
+  margin-bottom: 50px;
 }
 .header{
   height: 80px;
@@ -11,7 +12,7 @@
     margin-bottom: 8px;
     box-sizing: border-box;
     text-align: left;
-    border-left: 12px solid;
+    border-left: 10px solid;
     border-color: rgb(59, 148, 106);
 }
 .p{
@@ -21,17 +22,22 @@
   max-width: 890px;
   font-size: 20px;
 }
-
+.about{
+  margin-top: 40px;
+}
 .bio{
   text-align: left;
   width: 400px;
   margin-left: 50px;
 }
 .main{
-  margin-top: 100px;
-  margin-left: 15px;
+  margin: auto;
   display: flex;
   justify-content: center;
+  border: 5px solid rgba(59, 148, 106, 0.543);
+  border-radius: 15px;
+  width: 60%;
+  padding: 50px;
 }
 .info{
 margin-top: 30px;

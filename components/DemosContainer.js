@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import router from 'next/router';
+import Link from "next/dist/client/link";
 import Demos from "./Demos";
 import NavPrivate from "./NavPrivate";
 import styles from '../styles/pages.module.css';
@@ -60,8 +61,8 @@ const DemosContainer = () => {
       <h1></h1>
       </div>
       <div className={styles.description}>
-      <p className={styles.p}>place where you can submit your demos so other colleagues can benfit from it.</p>
-      <p></p>
+      <p className={styles.p}>The place where you can submit your demos so other colleagues can benefit from them.</p>
+      <p className={styles.helper}></p>
       </div>
       <div className={styles.icons}>
         {demosList.map((demo, index) => <Demos key={index} demo={demo} />)}
@@ -81,6 +82,9 @@ const DemosContainer = () => {
         </form>
       )}
       </>) : ''}
+      <div className={styles.back}>
+      <Link href="/landingPage"><a>&lt;-- back to the main page</a></Link>
+      </div>
     </div>
   )
 };
