@@ -62,7 +62,7 @@ const DemosContainer = () => {
       </div>
       <div className={styles.description}>
       <p className={styles.p}>The place where you can submit your demos so other colleagues can benefit from them.</p>
-      <p></p>
+      <p className={styles.helper}></p>
       </div>
       <div className={styles.icons}>
         {demosList.map((demo, index) => <Demos key={index} demo={demo} />)}

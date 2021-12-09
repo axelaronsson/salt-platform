@@ -82,7 +82,7 @@ const ProfilePageList = ({ userToken }) => {
             className={styles.imgradius}
             />
             </div>
-          <div>
+          <div className={styles.about}>
             <h2 className={styles.name}>{profile.name}</h2>
             <p className={styles.bio}>{profile.bio}</p>
             {!toggle && (

@@ -62,7 +62,7 @@ const AllCourses = () => {
         </div>
         <div className={styles.description}>
           <p className={styles.p}>Handpicked courses of multiple topics that our bootcamp is focused on.</p>
-          <p></p>
+          <p className={styles.helper}></p>
         </div>
         <div className={styles.icons}>
           {coursesList.map((course, index) => <Courses key={index} course={course} />)}
