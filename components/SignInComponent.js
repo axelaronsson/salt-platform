@@ -20,12 +20,10 @@ const SigninComponent = () => {
     }
     axios.post('/api/users/login', signinUser)
     .then(function (response) {
-      console.log('signin',response);
     })
     .then(() => router.push('/landingPage'))
     .catch(() => {
       setErrMsg(true);
-      console.error('Bad request');
     });
   }
 

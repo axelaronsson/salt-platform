@@ -3,6 +3,8 @@ import Image from 'next/image';
 
 const Card = ({ imgUrl, name, bio, email, date, phone }) => {
   const src = imgUrl;
+  const saltSrc = 'https://i.postimg.cc/cHDKNbRd/4.jpg';
+
 
   return (
     <div className={styles.profile_card}>
@@ -10,7 +12,7 @@ const Card = ({ imgUrl, name, bio, email, date, phone }) => {
         <div className={styles.pic}>
           <Image
             loader={() => src}
-            src={src}
+            src={src ? src : saltSrc}
             unoptimized={true}
             alt="courses Icon"
             width={180}

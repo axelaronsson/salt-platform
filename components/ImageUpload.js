@@ -25,7 +25,6 @@ const ImageUpload = ({ uploadImg }) => {
         });
       }
     } catch (error) {
-      console.log(error);
     }
   };
 

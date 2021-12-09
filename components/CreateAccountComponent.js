@@ -25,10 +25,8 @@ const CreateAccountComponent = () => {
 
     axios.post('/api/users', newAccount)
       .then(function (response) {
-        console.log(response);
       })
       .catch(function (error) {
-        console.log(error);
       });
     setName('');
     setEmail('');

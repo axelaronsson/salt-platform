@@ -27,10 +27,8 @@ const NavPrivate = ({ userToken }) => {
   }, [userToken]);
 
   const handleLogout = async () => {
-    console.log('handleLogout');
     await axios.post('/api/users/logout')
       .then(function (response) {
-        console.log(response);
       });
   }
   return (
@@ -110,7 +108,7 @@ const NavPrivate = ({ userToken }) => {
         </div>
       </Link>
       <Link href="/" passHref>
-        <div onClick={handleLogout} className={navStyles.img} className={navStyles.logout}>
+        <div onClick={handleLogout} className={navStyles.img}>
           <Image
             className={navStyles.logo}
             title="Log-out"
