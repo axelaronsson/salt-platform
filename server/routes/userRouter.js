@@ -21,9 +21,6 @@ userRouter
   .route('/authorize')
   .get(auth, async (req, res) => {
     const user = await req.user;
-    // const userCopy = {...user}
-    // const key = '$isNew';
-    console.log(user.role);
     res.send({role: user.role});
   })
   

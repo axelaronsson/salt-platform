@@ -30,7 +30,6 @@ videosRouter
   })
   .delete( async (req, res) => {
     const { id } = req.params;
-    // idValidator(id, items);
     await Video.deleteOne({_id: id});
     res.status(204);
     res.end()
