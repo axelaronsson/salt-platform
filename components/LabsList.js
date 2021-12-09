@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useRouter } from 'next/router';
+import Link from "next/dist/client/link";
 import Videos from "./Videos";
 import Github from "./Github";
 import Slides from "./Slides";
@@ -110,8 +111,7 @@ const LabsList = () => {
           <h1></h1>
         </div>
         <div className={styles.description}>
-          <p className={styles.p}>a solid understanding of the bootcamps labs and
-            is guranteed to give you a better tests.</p>
+          <p className={styles.p}>A solid understanding of the bootcamp labs and is guaranteed to give you better tests.</p>
           <p></p>
         </div>
 
@@ -166,6 +166,9 @@ const LabsList = () => {
           </form>
         )}
       </>) : ''}
+      <div className={styles.back}>
+      <Link href="/landingPage"><a>&lt;-- back to the main page</a></Link>
+      </div>
     </div>
   )
 }

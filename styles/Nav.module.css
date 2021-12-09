@@ -28,3 +28,7 @@
 .logo{
   border-radius: 8px;
 }
+.logout{
+position: relative;
+top: 250px;
+}
